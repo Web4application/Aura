@@ -1,3 +1,5 @@
+<img width="2385" height="2440" alt="aura_hub_diagram" src="https://github.com/user-attachments/assets/d926f4ec-ab4b-45cc-beaa-abd1b3194973" />
+<img width="2385" height="2440" alt="aura_hub_diagram_dark" src="https://github.com/user-attachments/assets/2dce9b38-b692-4065-b0ad-9d0f3b04537e" />
 
  
  ## WHAT HAVE I BUILT
