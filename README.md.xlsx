@@ -1,9 +1,10 @@
 
 ⸻
-first project
-⸻
+## first project
 
-aura_project/
+## • ————
+
+| aura_project/
  ├── data/
  │    └── Aura.xlsx              # your data hub
  ├── src/
@@ -15,7 +16,7 @@ aura_project/
  ├── notebooks/
  │    └── exploration.ipynb      # experiments
  ├── requirements.txt
- └── main.py                     # orchestrator script
+ └── main.py                     # orchestrator script |
 
 ⸻
     
@@ -31,7 +32,7 @@ Date: 2025
 1. .xlsl — Logic Spreadsheet (Core)
 
 Purpose
-A structured, Excel-compatible file format designed as the hub for mathematics, physics, reasoning, and simulation data.
+| A structured, Excel-compatible file format designed as the hub for mathematics, physics, reasoning, and simulation data. |
 
 Structure
 	•	Reserved sheets: Pure_Mathematics, Further_Mathematics, Applied_Physics, Reasoning_Logic, Simulation_Problems, Teleportation_Simulation.
@@ -177,18 +178,16 @@ Use_Cases
 	•	Allows seamless transition from experimentation to production-ready workflows.
 
 ## ⸻ 
-       
-• expansion: 
+       expansion: 
 
 || workbook.xlsl ||	
 
-1.	| Ethics_Notes | – privacy, bias, fairness, consent logs.
-2.	| Economics_spreadsheet | – intervention costs, resource allocation, ROI calculations.
+1.	| Ethics_Notes | -  privacy, -  bias | - fairness | - consent | - logs | - Economics - -spreadsheet | – intervention | costs - resource | allocation - | - ROI calculations |
 
-3.	| Simulation_Scenarios | – “what-if” experiments for diet, drugs, stress, or environmental factors.
-4.	| Visualization_Config | – chart types, axes, thresholds, color schemes for automated plotting.
-5.	|Collaboration_Log | – contributors, changes, timestamps, versioning.
-6.	| Deployment_dimensional | – endpoints, runtime configurations, API keys, server settings for 
+6.	| Simulation_Scenarios | – “what-if” experiments for diet, drugs, stress, or environmental factors.
+7.	| Visualization_Config | – chart types, axes, thresholds, color schemes for automated plotting.
+8.	|Collaboration_Log | – contributors, changes, timestamps, versioning.
+9.	| Deployment_dimensional | – endpoints, runtime configurations, API keys, server settings for 
 
  | Ai_quantum_workflows |
   
@@ -231,24 +230,26 @@ You typed Aura.xlsl. Likely you meant Aura.xlsx (Excel workbook).
 
 | / Project Structure/.xlsl |
 
-⸻
+## ⸻
 
-aura_project/
- ├── data/
- │    └── Aura.xlsl           # fully expanded workbook with 25+ sheets
- ├── src/
- │    ├── __init__.py
- │    ├── file_loader.py      # handles .xlsl/.xlsx reading & writing
- │    ├── utils.py            # helper functions
- │    ├── ai_pipeline.py      # ML models & predictions
- │    ├── quantum_pipeline.py # Qiskit circuits
- │    └── lifespan_analysis.py# placeholder for lifespan analytics
- ├── notebooks/
- │    └── exploration.ipynb   # experimentation & visualization
- ├── requirements.txt
- └── main.py                  # orchestrator script
+    aura_project/
+    ├── data/
+    │    └── Aura.xlsl           # fully expanded workbook with 25+ sheets
+    ├── src/
+    │    ├── __init__.py
+    │    ├── file_loader.py      # handles .xlsl/.xlsx reading & writing
+    │    ├── utils.py            # helper functions
+    │    ├── ai_pipeline.py      # ML models & predictions
+    │    ├── quantum_pipeline.py # Qiskit circuits
+    │    └── lifespan_analysis.py# placeholder for lifespan analytics
+    ├── notebooks/
+    │    └── exploration.ipynb   # experimentation & visualization
+    ├.── requirements.txt
+    └── main.py                  # orchestrator script
 
-Features:
+## ————
+
+| Features:
 	•	Loads and saves Aura.xlsl while internally using .xlsx compatibility.
  Contains all previously created
  
@@ -359,3 +360,6 @@ You can download the full workbook here: Aura_Full_Project.xlsl
 
 
 ```
+
+| <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/52ab2b56-b0b6-4a26-9871-6c3cf8cb53a7" /> - | <img width="480" height="480" alt="image" - | src="https://github.com/user-attachments/assets/9853e362-7677-45d2-9a1b-a75437e07486" /> - | <img width="480" height="480" alt="image" - |src="https://github.com/user-attachments/assets/a7b76ddc-6a1f-466b-9beb-e34224d76e74" /> |
+
