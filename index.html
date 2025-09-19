@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Hub</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0e0e0e;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    svg {
+      width: 90%;
+      max-width: 900px;
+      transform-origin: center;
+      animation: rotate 60s linear infinite;
+    }
+    .node {
+      fill: #4cafef;
+      stroke: #fff;
+      stroke-width: 2;
+      cursor: pointer;
+      animation: pulse 3s infinite;
+      transition: fill 0.3s, filter 0.3s;
+      filter: drop-shadow(0 0 10px #4cafef);
+    }
+    .node:hover {
+      fill: #ff9800;
+      filter: drop-shadow(0 0 20px #ff9800);
+    }
+    text {
+      fill: white;
+      font-size: 14px;
+      pointer-events: none;
+      font-weight: bold;
+    }
+    a {
+      text-decoration: none;
+    }
+    /* Glowing pulse */
+    @keyframes pulse {
+      0% { r: 40; }
+      50% { r: 50; }
+      100% { r: 40; }
+    }
+    /* Slow rotation */
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <svg viewBox="0 0 600 600">
+    <!-- Central Aura with Download All -->
+    <a href="files/Aura_All.zip" download>
+      <circle cx="300" cy="300" r="60" fill="#673ab7" stroke="white" stroke-width="3"
+        style="filter: drop-shadow(0 0 20px #673ab7);"></circle>
+      <text x="300" y="305" text-anchor="middle" font-size="14">Download All</text>
+    </a>
+
+    <!-- Surrounding nodes with download links -->
+    <a href="files/Sheet1.xlsx" download>
+      <circle class="node" cx="300" cy="120" r="40"></circle>
+      <text x="300" y="125" text-anchor="middle">Sheet1</text>
+    </a>
+
+    <a href="files/Sheet2.xlsx" download>
+      <circle class="node" cx="480" cy="220" r="40"></circle>
+      <text x="480" y="225" text-anchor="middle">Sheet2</text>
+    </a>
+
+    <a href="files/Sheet3.xlsx" download>
+      <circle class="node" cx="480" cy="400" r="40"></circle>
+      <text x="480" y="405" text-anchor="middle">Sheet3</text>
+    </a>
+
+    <a href="files/Sheet4.xlsx" download>
+      <circle class="node" cx="300" cy="500" r="40"></circle>
+      <text x="300" y="505" text-anchor="middle">Sheet4</text>
+    </a>
+
+    <a href="files/Sheet5.xlsx" download>
+      <circle class="node" cx="120" cy="400" r="40"></circle>
+      <text x="120" y="405" text-anchor="middle">Sheet5</text>
+    </a>
+
+    <a href="files/Sheet6.xlsx" download>
+      <circle class="node" cx="120" cy="220" r="40"></circle>
+      <text x="120" y="225" text-anchor="middle">Sheet6</text>
+    </a>
+  </svg>
+</body>
+</html>
