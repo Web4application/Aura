@@ -84,6 +84,8 @@
 
 **Invented and proposed by Seriki Yakub (KUBU LEE).**
 
+[![View Aura Hub](https://img.shields.io/badge/⚡_View-Aura_Hub-purple?style=for-the-badge)](https://web4application.github.io/Aura/)
+
 
 ## 🔑 Key Concepts
 - **`.xlsl`** → Next-gen intelligent workbook format.
@@ -118,6 +120,7 @@
 Open for research and educational use. Attribution to **Seriki Yakub (KUBU LEE)** is required for `.xlsl` and invented extensions.
 
 
+[![Aura](assets/aura.gif)](https://web4application.github.io/Aura/)
 
 
 Uploading ScreenRecording_09-19-2025 06-16-53_1.mov…
@@ -484,14 +487,50 @@ making it a fully functional research and project hub supporting AI, quantum com
 | <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/6fda0b7a-4845-4efb-b4cd-a8787e6edb07" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/838b2325-6848-4110-83ec-6a1e1e1c2fb9" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/6ce88db6-76de-4f40-a84b-6fd18d3c670d" />
+
+# Aura  
+
+<p align="center">
+  <img src="assets/aura.gif" width="200" alt="Aura rotating logo" />
+</p>
+
+
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/dd6d7c34-d9d5-478f-a39b-ee5aa7ad7695" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/298141fb-5ae5-427a-973c-6b1c1ab4638c" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/97ce4ab8-7ebf-4382-b7d4-cef02ff09fb1" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/f0cc0337-2a39-4c00-b143-bd607bf347f9" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/ae89d6cb-f6b0-4cd1-86a6-78776b66d78a" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/9dc46c57-2b94-409b-9164-9097cc39e6e6" />
+
+
+<img src="https://web4application.github.io/Aura/aura.gif" width="200" />
+
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/c7f4b3a7-7217-4583-b0e6-c6c8d7bc5ca9" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/f0a8d02c-3dbd-41ac-a6d6-7163ff928f08" />
+
+# Aura  
+
+<p align="center">
+  <img src="assets/aura.gif" width="200" alt="Aura rotating logo" />
+</p>
+
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/a8c24fd3-2e4f-4361-9a16-da143f63e9c1" />
 <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/4e9e99d7-3d35-4deb-a6b6-19c7b83052ae" />
 
+# Aura
+
+<img src="https://web4application.github.io/Aura/logo.gif" width="200" alt="Aura rotating logo" />
+
+# Aura  
+
+<p align="center">
+  <a href="https://web4application.github.io/Aura/">
+    <img src="assets/aura.gif" width="200" alt="Aura rotating logo" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://web4application.github.io/Aura/">
+    <img src="https://img.shields.io/badge/⚡%20View-Aura_Hub-purple?style=for-the-badge" />
+  </a>
+</p>
