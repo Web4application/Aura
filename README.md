@@ -1,5 +1,8 @@
 
-** \WHAT HAVE I BUILT <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/ca3e1be2-a457-4bc5-9c4d-1ea896f8755a" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/271efbf5-dbd1-4665-9d2f-a5fd57d7a7d7" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/8bf7532a-e5b2-47e3-ba80-23836c4f3488" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/49079ef2-bff4-4b5f-a117-211b9e78dc0a" />
+ 
+ ## WHAT HAVE I BUILT
+ 
+— <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/ca3e1be2-a457-4bc5-9c4d-1ea896f8755a" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/271efbf5-dbd1-4665-9d2f-a5fd57d7a7d7" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/8bf7532a-e5b2-47e3-ba80-23836c4f3488" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/49079ef2-bff4-4b5f-a117-211b9e78dc0a" />
 |<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/0a7fb69f-a298-450e-8a14-e83529cb253a" />
 |<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/7e59ae74-dc41-4282-a0e7-ce9cebddda04" />
 |<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/d82c5365-8fbc-49e1-bdfb-a6366ef8b88c" />
@@ -8,15 +11,12 @@
 
 ## **so much faster changes**
  
-| **## Aura Research Project** | 
-
-| **Inventor** |Seriki Yakub (KUBU LEE) | **Core Format** | `.xlsl` → Intelligent Spreadsheet Language  | 
-| **Purpose**!| Extend spreadsheets into a **multi-dimensional research hub** combining AI, STEM, and theoretical physics.
+| **## Aura Research Project** - **Inventor** | Seriki Yakub (KUBU LEE) - **Core Format** - | `.xlsl` → Intelligent Spreadsheet Language  | 
+| **Purpose**!- Extend spreadsheets into a **multi-dimensional research hub** combining AI, STEM, and theoretical physics.
 
 
-|
 
-📑<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/0696362a-6ddf-4e90-84d9-3fd491d74918" />
+— 📑<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/0696362a-6ddf-4e90-84d9-3fd491d74918" /> |
 
 
 
@@ -468,5 +468,21 @@ Use_Cases
 
 ## Aura.xlsl has a a total of 40 dinesional sheets
 
-making it a fully functional research and project hub supporting AI, quantum computing, lifespan studies, applied STEM research, ethics, economics, simulations, visualization, collaboration, and deployment.
+making it a fully functional research and project hub supporting AI, quantum computing, lifespan studies, applied STEM research, ethics, economics, simulations, visualization, collaboration, and deployment
+
+```
+
+| <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/6fda0b7a-4845-4efb-b4cd-a8787e6edb07" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/838b2325-6848-4110-83ec-6a1e1e1c2fb9" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/6ce88db6-76de-4f40-a84b-6fd18d3c670d" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/dd6d7c34-d9d5-478f-a39b-ee5aa7ad7695" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/298141fb-5ae5-427a-973c-6b1c1ab4638c" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/97ce4ab8-7ebf-4382-b7d4-cef02ff09fb1" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/f0cc0337-2a39-4c00-b143-bd607bf347f9" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/ae89d6cb-f6b0-4cd1-86a6-78776b66d78a" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/9dc46c57-2b94-409b-9164-9097cc39e6e6" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/c7f4b3a7-7217-4583-b0e6-c6c8d7bc5ca9" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/f0a8d02c-3dbd-41ac-a6d6-7163ff928f08" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/a8c24fd3-2e4f-4361-9a16-da143f63e9c1" />
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/4e9e99d7-3d35-4deb-a6b6-19c7b83052ae" />
 
