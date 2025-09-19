@@ -115,6 +115,13 @@
 ## ⚖️ License
 Open for research and educational use. Attribution to **Seriki Yakub (KUBU LEE)** is required for `.xlsl` and invented extensions.
 
+
+
+
+Uploading ScreenRecording_09-19-2025 06-16-53_1.mov…
+
+
+
 ⸻
 
 ## first project 
