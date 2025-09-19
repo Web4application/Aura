@@ -1,29 +1,32 @@
-# Aura Research Project
 
-**Inventor**: Seriki Yakub (KUBU LEE)  
-**Core Format**: `.xlsl` → Intelligent Spreadsheet Language  
-**Purpose**: Extend spreadsheets into a **multi-dimensional research hub** combining AI, STEM, and theoretical physics.
+    
+## Aura Research Project
 
----
+
+    **Inventor**: Seriki Yakub (KUBU LEE)  
+	**Core Format**: `.xlsl` → Intelligent Spreadsheet Language  
+    **Purpose**: Extend spreadsheets into a **multi-dimensional research hub** combining AI, STEM, and theoretical physics.
+
+    
 
 ## 📂 Project Structure
-```
-Aura-Research/
- ├─ data/
- │   └─ Aura.xlsx
- ├─ docs/
- │   └─ specification.md
- ├─ extensions/
- │   ├─ xlog_spec.md
- │   ├─ xsim_spec.md
- │   ├─ xquant_spec.md
- │   ├─ xdim_spec.md
- │   └─ xphilo_spec.md
- ├─ simulations/
- │   └─ teleportation_pipeline.ipynb
- ├─ LICENSE
- └─ README.md
-```
+
+    Aura-Research/
+    ├─ data/
+    │   └─ Aura.xlsx
+    ├─ docs/
+    │   └─ specification.md
+    ├─ extensions/
+    │   ├─ xlog_spec.md
+    │   ├─ xsim_spec.md
+    │   ├─ xquant_spec.md
+    │   ├─ xdim_spec.md
+    │   └─ xphilo_spec.md
+    ├─ simulations/
+    │   └─ teleportation_pipeline.ipynb
+    ├─ LICENSE
+    └─ README.md
+
 
 ---
 
@@ -231,7 +234,7 @@ Use_Cases
 
 ⸻
 
-7. Ecosystem_Workflow
+7. ## Ecosystem_Workflow
 
 	1.	   .xlsl = Hub → holds general STEM and logic sheets.
 	2.	   .xqsl = Quantum extension → state transfer, entanglement, teleportation.
@@ -289,9 +292,9 @@ Use_Cases
 	6.	Deployment_ – endpoints, runtime configurations, API keys, server settings for 
 
 
- ⸻
+    ⸻
 
- ⸻
+    ⸻
  
  
 ## SERAi quantum_workflows
@@ -309,18 +312,18 @@ Use_Cases
 	•	Project management and collaboration are integrated, ensuring reproducibility, ethics tracking, and versioning.
 	•	STEM research is fully supported: mathematical models, physics parameters, reasoning experiments, and genomics data are all accessible in one system.
 
-– ##You typed Aura.xlsl. Likely you meant Aura.xlsx (Excel workbook).
+## You typed Aura.xlsl. Likely you meant Aura.xlsx (Excel workbook).
 
-## .xlsl is not a valid Microsoft Excel extension. Excel only recognizes formats like:
+    |typi.xlsl is not a valid Microsoft Excel extension| |Excel only recognizes formats like|
 
 	•	.xlsx → Standard workbook
 	•	.xls → Legacy workbook (Excel 97–2003)
 	•	.xlsm → Workbook with macros
 	•	.csv → Comma-separated values
 
-⸻
+    ⸻
 
-##| Project Structure |
+## | Project Structure |
 
     aura_project/
     ├── data/
@@ -371,7 +374,7 @@ Use_Cases
 	•	Facilitates transitioning from experimentation to production-ready workflows.
 
    ## suggested Optional advanced sheets:
-   
+```
 	•	Advanced_Mathematics → tensors, matrices, PDEs, applied formulas.
 	•	Physics_Experiments → mechanics, thermodynamics, electromagnetism, quantum parameters.
 	•	Reasoning_Problems → formal logic problems, experimental design, hypotheses.
@@ -402,7 +405,7 @@ Use_Cases
 	4.	Visualization_Config
 	•	Defines chart types, axes, thresholds, and color schemes.
  
-•	## Supports automated plotting from Python scripts for reproducibility.
+ ## Supports automated plotting from Python scripts for reproducibility.
 
 	5.	Collaboration_Log
 	•	Logs contributors, tasks, changes, timestamps, and versioning information.
@@ -434,7 +437,8 @@ Use_Cases
 
 ## This structure turns Aura into a complete, scalable research ecosystem:
  
-    •capable of supporting AI
+   ```bash
+	•capable of supporting AI
     •quantum computing
     •lifespan analysis
     •applied STEM research
