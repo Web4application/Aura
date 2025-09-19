@@ -1,13 +1,26 @@
 
-    
-## Aura Research Project
+** \WHAT HAVE I BUILT <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/ca3e1be2-a457-4bc5-9c4d-1ea896f8755a" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/271efbf5-dbd1-4665-9d2f-a5fd57d7a7d7" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/8bf7532a-e5b2-47e3-ba80-23836c4f3488" />|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/49079ef2-bff4-4b5f-a117-211b9e78dc0a" />
+|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/0a7fb69f-a298-450e-8a14-e83529cb253a" />
+|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/7e59ae74-dc41-4282-a0e7-ce9cebddda04" />
+|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/d82c5365-8fbc-49e1-bdfb-a6366ef8b88c" />
+|<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/76e8f147-33e4-4015-b3f9-4c2e78805028" />
+\
+
+## **so much faster changes**
+ 
+| **## Aura Research Project** | 
+
+| **Inventor** |Seriki Yakub (KUBU LEE) | **Core Format** | `.xlsl` → Intelligent Spreadsheet Language  | 
+| **Purpose**!| Extend spreadsheets into a **multi-dimensional research hub** combining AI, STEM, and theoretical physics.
 
 
-    **Inventor**: Seriki Yakub (KUBU LEE)  
-	**Core Format**: `.xlsl` → Intelligent Spreadsheet Language  
-    **Purpose**: Extend spreadsheets into a **multi-dimensional research hub** combining AI, STEM, and theoretical physics.
+|
 
-    
+📑<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/0696362a-6ddf-4e90-84d9-3fd491d74918" />
+
+
+
+
 
 ## 📂 Project Structure
 
@@ -27,12 +40,10 @@
     ├─ LICENSE
     └─ README.md
 
-
----
-
 # Aura Research Specification
 
-## Core Format
+| ## Core Format |
+
 - **`.xlsl`**: Novel spreadsheet format acting as an intelligent workbook.
 - Attributes:
   - Multi-dimensional support
