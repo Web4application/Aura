@@ -7,7 +7,7 @@
   <style>
     body {
       margin: 0;
-      background: #0e0e0e;
+      background: radial-gradient(circle at center, #0e0e0e, #000000);
       color: white;
       font-family: Arial, sans-serif;
       display: flex;
@@ -20,16 +20,16 @@
       width: 90%;
       max-width: 900px;
       transform-origin: center;
-      animation: rotate 60s linear infinite;
+      animation: rotate 80s linear infinite;
     }
     .node {
       fill: #4cafef;
       stroke: #fff;
       stroke-width: 2;
       cursor: pointer;
-      animation: pulse 3s infinite;
+      animation: pulse 3s infinite, dimension 8s ease-in-out infinite;
       transition: fill 0.3s, filter 0.3s;
-      filter: drop-shadow(0 0 10px #4cafef);
+      filter: drop-shadow(0 0 12px #4cafef);
     }
     .node:hover {
       fill: #ff9800;
@@ -44,16 +44,23 @@
     a {
       text-decoration: none;
     }
-    /* Glowing pulse */
+    /* Pulse effect */
     @keyframes pulse {
-      0% { r: 40; }
+      0%, 100% { r: 40; }
       50% { r: 50; }
-      100% { r: 40; }
     }
-    /* Slow rotation */
+    /* Slow rotation of whole hub */
     @keyframes rotate {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
+    }
+    /* Dimension (depth) animation */
+    @keyframes dimension {
+      0%   { transform: scale(1) translate(0px, 0px); opacity: 1; }
+      25%  { transform: scale(1.1) translate(5px, -5px); opacity: 0.9; }
+      50%  { transform: scale(0.9) translate(-5px, 5px); opacity: 0.85; }
+      75%  { transform: scale(1.05) translate(8px, -3px); opacity: 0.95; }
+      100% { transform: scale(1) translate(0px, 0px); opacity: 1; }
     }
   </style>
 </head>
@@ -62,7 +69,7 @@
     <!-- Central Aura with Download All -->
     <a href="files/Aura_All.zip" download>
       <circle cx="300" cy="300" r="60" fill="#673ab7" stroke="white" stroke-width="3"
-        style="filter: drop-shadow(0 0 20px #673ab7);"></circle>
+        style="filter: drop-shadow(0 0 25px #673ab7);"></circle>
       <text x="300" y="305" text-anchor="middle" font-size="14">Download All</text>
     </a>
 
