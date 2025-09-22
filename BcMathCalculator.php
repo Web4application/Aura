@@ -2,91 +2,99 @@
 
 declare(strict_types=1);
 
-namespace Brick\Math\Internal\Calculator;
+namespace Aura\Math\Internal\Calculator;
 
 use Brick\Math\Internal\Calculator;
 
 /**
- * Calculator implementation built around the bcmath library.
+ * Aura Quantum Engine – multi-qubit, Serai-ready, high-precision.
  *
  * @internal
- *
  * @psalm-immutable
  */
-class BcMathCalculator extends Calculator
+class AuraQuantumCalculator extends Calculator
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function add(string $a, string $b) : string
+    private int $scale;
+
+    public function __construct(int $scale = 20)
     {
-        return \bcadd($a, $b, 0);
+        $this->scale = $scale;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function sub(string $a, string $b) : string
+    /* --- Basic Arithmetic Helpers --- */
+    private function bcAdd(string $a, string $b): string { return bcadd($a, $b, $this->scale); }
+    private function bcSub(string $a, string $b): string { return bcsub($a, $b, $this->scale); }
+    private function bcMul(string $a, string $b): string { return bcmul($a, $b, $this->scale); }
+    private function bcDiv(string $a, string $b): string { return bcdiv($a, $b, $this->scale); }
+    private function bcSqrt(string $a): string { return bcsqrt($a, $this->scale); }
+
+    /* --- QUBIT REPRESENTATION --- */
+    // Each qubit is represented as ['alpha' => amplitude0, 'beta' => amplitude1]
+    public function createQubit(string $alpha = '1', string $beta = '0'): array
     {
-        return \bcsub($a, $b, 0);
+        // Normalize automatically
+        $norm = $this->normalizeAmplitude([$alpha, $beta]);
+        return [
+            'alpha' => $this->bcDiv($alpha, $norm),
+            'beta'  => $this->bcDiv($beta, $norm),
+        ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function mul(string $a, string $b) : string
+    /* --- Quantum Amplitude Utilities --- */
+    public function normalizeAmplitude(array $amplitudes): string
     {
-        return \bcmul($a, $b, 0);
+        $sum = '0';
+        foreach ($amplitudes as $amp) {
+            $sum = $this->bcAdd($sum, $this->bcMul($amp, $amp));
+        }
+        return $this->bcSqrt($sum);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function divQ(string $a, string $b) : string
+    public function complexMagnitude(string $real, string $imag): string
     {
-        return \bcdiv($a, $b, 0);
+        $real2 = $this->bcMul($real, $real);
+        $imag2 = $this->bcMul($imag, $imag);
+        return $this->bcSqrt($this->bcAdd($real2, $imag2));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function divR(string $a, string $b) : string
+    /* --- QUANTUM GATES --- */
+    
+    // Pauli-X gate (bit flip)
+    public function pauliX(array $qubit): array
     {
-        return \bcmod($a, $b);
+        return [
+            'alpha' => $qubit['beta'],
+            'beta'  => $qubit['alpha'],
+        ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function divQR(string $a, string $b) : array
+    // Hadamard gate (superposition)
+    public function hadamard(array $qubit): array
     {
-        $q = \bcdiv($a, $b, 0);
-        $r = \bcmod($a, $b);
-
-        return [$q, $r];
+        $invSqrt2 = '0.70710678118654752440'; // 1/sqrt(2)
+        return [
+            'alpha' => $this->bcAdd($this->bcMul($invSqrt2, $qubit['alpha']), $this->bcMul($invSqrt2, $qubit['beta'])),
+            'beta'  => $this->bcSub($this->bcMul($invSqrt2, $qubit['alpha']), $this->bcMul($invSqrt2, $qubit['beta'])),
+        ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function pow(string $a, int $e) : string
+    /* --- MULTI-QUBIT STATES --- */
+    public function tensorProduct(array $q1, array $q2): array
     {
-        return \bcpow($a, (string) $e, 0);
+        return [
+            '00' => $this->bcMul($q1['alpha'], $q2['alpha']),
+            '01' => $this->bcMul($q1['alpha'], $q2['beta']),
+            '10' => $this->bcMul($q1['beta'],  $q2['alpha']),
+            '11' => $this->bcMul($q1['beta'],  $q2['beta']),
+        ];
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function modPow(string $base, string $exp, string $mod) : string
+    /* --- MEASUREMENT --- */
+    public function measure(array $qubit): string
     {
-        return \bcpowmod($base, $exp, $mod, 0);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function sqrt(string $n) : string
-    {
-        return \bcsqrt($n, 0);
+        // Simple probabilistic measurement simulation
+        $alpha2 = $this->bcMul($qubit['alpha'], $qubit['alpha']);
+        $rand = (string) mt_rand() / mt_getrandmax(); // random 0..1
+        return bccomp($rand, $alpha2, $this->scale) < 1 ? '0' : '1';
     }
 }
