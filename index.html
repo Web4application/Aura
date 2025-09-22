@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Quantum Dashboard</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Aura Quantum Circuit Builder</h1>
+
+<div id="circuit-builder">
+    <div id="qubits-container"></div>
+    <div id="gates-container">
+        <button data-gate="H">H</button>
+        <button data-gate="X">X</button>
+        <button data-gate="Y">Y</button>
+        <button data-gate="Z">Z</button>
+        <button data-gate="CNOT">CNOT</button>
+        <button data-gate="TOFFOLI">TOFFOLI</button>
+    </div>
+    <button id="run-circuit">Run Circuit</button>
+</div>
+
+<h2>Result</h2>
+<pre id="result"></pre>
+<canvas id="state-plot" width="600" height="400"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
