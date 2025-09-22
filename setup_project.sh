@@ -11,9 +11,9 @@ with open(setup_script_path, "w") as f:
 # -----------------------------
 
 # --- CONFIGURATION ---
-GITHUB_USERNAME="YourUsername"
-REPO_NAME="SERAI"
-GITHUB_URL="https://github.com/$GITHUB_USERNAME/$REPO_NAME.git"
+GITHUB_USERNAME="Web4application"
+REPO_NAME="serai"
+GITHUB_URL="https://github.com/Web4application/Aura.git"
 PYTHON_VERSION="3.11"
 
 # --- INIT GIT ---
