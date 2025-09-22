@@ -84,3 +84,5 @@ git commit -m "Add GitHub Actions CI workflow"
 git push origin main
 
 echo "✅ SERAI GitHub setup complete!"
+
+pip install qiskit qiskit-optimization
