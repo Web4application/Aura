@@ -13,7 +13,7 @@ require "dependabot/cargo/version"
 
 require "dependabot/pull_request_creator/labeler"
 Dependabot::PullRequestCreator::Labeler
-  .register_label_details("cargo", name: "roda", colour: "000000")
+  .register_label_details("cargo", name: "serai", colour: "000000")
 
 require "dependabot/dependency"
 Dependabot::Dependency.register_production_check("cargo", ->(_) { true })
