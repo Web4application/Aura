@@ -1,0 +1,102 @@
+
+from IPython.display import HTML
+
+# Interactive HTML mockup with hover + animated title bar
+html_preview = """
+<style>
+  /* Tile Styles */
+  .tile {
+    background:#f9f9f9;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    text-align:center;
+    font-weight:bold;
+    color:#0066cc;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .tile:hover {
+    background:#e6f0ff;
+    color:#003366;
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    cursor:pointer;
+  }
+
+  /* Animated Gradient Title */
+  .animated-title {
+    background: linear-gradient(270deg, #003366, #663399, #00ccff, #9900cc);
+    background-size: 600% 600%;
+    animation: gradientShift 12s ease infinite;
+    color:white;
+    font-size:20px;
+    font-weight:bold;
+    padding:10px;
+    text-align:center;
+    border-radius:5px;
+  }
+  @keyframes gradientShift {
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
+  }
+</style>
+
+<div style="font-family:Segoe UI, sans-serif; width:700px; border:1px solid #ccc; padding:20px; background:white;">
+
+  <!-- Title -->
+  <div class="animated-title">
+    🌌 Aura Hub – Research Ecosystem
+  </div>
+
+  <!-- Navigation Tiles -->
+  <div style="margin-top:20px; display:grid; grid-template-columns: 1fr 1fr; gap:15px;">
+    
+    <a href="https://web4application.github.io/Aura/" target="_blank" style="text-decoration:none;">
+      <div class="tile">🌐 GitHub Repository</div>
+    </a>
+
+    <a href="https://github.com/web4application/Aura" target="_blank" style="text-decoration:none;">
+      <div class="tile">📄 Documentation</div>
+    </a>
+
+    <a href="#Logs" style="text-decoration:none;">
+      <div class="tile">📝 Experiment Logs</div>
+    </a>
+
+    <a href="#Data" style="text-decoration:none;">
+      <div class="tile">📊 Data Sheets</div>
+    </a>
+
+    <a href="#Collaboration_Log" style="text-decoration:none;">
+      <div class="tile">🤝 Collaboration Log</div>
+    </a>
+
+    <a href="#Visualization_Config" style="text-decoration:none;">
+      <div class="tile">📈 Visualization Config</div>
+    </a>
+
+    <a href="#Deployment" style="text-decoration:none;">
+      <div class="tile">🚀 Deployment Settings</div>
+    </a>
+
+  </div>
+
+  <!-- Info Box -->
+  <div style="margin-top:25px; background:#fff8dc; border:1px solid #ccc; padding:15px; border-radius:5px; font-size:14px;">
+    ℹ️ <b>Aura Hub centralizes:</b><br>
+    • STEM Research Sheets (Math, Physics, Genomics, Healthcare, Environment)<br>
+    • AI & Quantum Simulation Results<br>
+    • Ethics, Economics & Deployment Tracking
+  </div>
+
+  <!-- Footer -->
+  <div style="margin-top:25px; font-size:12px; color:gray; text-align:center; font-style:italic;">
+    🔗 Powered by Aura | v1.0 | Last updated: 2025-09-19
+  </div>
+
+</div>
+"""
+
+HTML(html_preview)
