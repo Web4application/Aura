@@ -4,11 +4,34 @@
   
 ⸻
     
-Author: Seriki Yakub (KUBU LEE)
-Date: 2025
+## Author: Seriki Yakub (KUBU LEE)
+## Date: 2025
 
+
+
+# Aura/Serai Quantum IDE
+
+Interactive drag-and-drop quantum circuit simulator with GPU-accelerated backend.
+
+## Features
+- Drag-and-drop quantum gates (H, X, Y, Z, CNOT, TOFFOLI)
+- Multi-qubit circuit simulation
+- Real-time amplitude visualization
+- Save/load circuits as JSON
+- Batch GPU simulation support
+- Fractional/negative amplitude support (Aura math integration)
+
+## Installation
+```bash
+git clone <repo-url>
+cd AuraQuantumIDE
+pip install -r requirements.txt
+uvicorn api.main:app --reload
+
+```
 ⸻
 
+## first project
 
     aura_project/
     ├── data/
@@ -29,11 +52,11 @@ Date: 2025
 
 1. .xlsl — Logic Spreadsheet (Core)
 
-Purpose
-| A structured, Excel-compatible file format designed as the hub for mathematics, physics, reasoning, and simulation data. |
+## Purpose
+    | A structured, Excel-compatible file format designed as the hub for mathematics, physics, reasoning, and simulation data. |
 
-Structure
-	•	Reserved sheets: Pure_Mathematics, Further_Mathematics, Applied_Physics, Reasoning_Logic, Simulation_Problems, Teleportation_Simulation.
+## Structure
+  •	Reserved sheets: Pure_Mathematics, Further_Mathematics, Applied_Physics, Reasoning_Logic, Simulation_Problems, Teleportation_Simulation.
 	•	Tabular format with rows = entities, columns = attributes.
 
 Use-Cases
@@ -45,14 +68,14 @@ Use-Cases
 
 2. .xqsl — Quantum Spreadsheet Language
 
-Purpose
-Represents quantum states, entanglement, and teleportation in tabular form.
+## Purpose
+    Represents quantum states, entanglement, and teleportation in tabular form.
 
-Structure
+    Structure
 	•	Core sheets: Qubits, Entanglement, Teleportation, Noise_Models.
 	•	Normalization rules: |α|² + |β|² = 1.
 
-Use-Cases
+    Use-Cases
 	•	AI-assisted quantum state reasoning.
 	•	Interoperability with Qiskit, Cirq, Rigetti simulators.
 	•	Teleportation experiment modeling.
@@ -61,13 +84,13 @@ Use-Cases
 
 3. .xsim — Simulation Spreadsheet
 
-Purpose
-Dedicated container for applied simulations across physics, math, and multi-disciplinary problems.
+## Purpose
+    Dedicated container for applied simulations across physics, math, and multi-disciplinary problems.
 
-Structure
-| Simulation_ID | Input_Data | Governing_Equations | Solver_Method | Output_Parameters | Error_Margin | Notes |
+    Structure 
+	| Simulation_ID | Input_Data | Governing_Equations | Solver_Method | Output_Parameters | Error_Margin | Notes |
 
-Use-Cases
+    Use-Cases
 	•	Energy cost of teleportation.
 	•	Wormhole/dimensional collapse simulations.
 	•	Linking spreadsheet experiments to computational solvers (Python, MATLAB).
@@ -76,13 +99,13 @@ Use-Cases
 
 4. .xrls — Reasoning Layer Spreadsheet
 
-Purpose
-Encodes logical reasoning in structured tabular form, bridging raw data and inference.
+## Purpose
+    Encodes logical reasoning in structured tabular form, bridging raw data and inference.
 
-Structure
-| Premise | Logical_Operator | Secondary_Premise | Conclusion | Truth_Value | Confidence (%) | Notes |
+## Structure
+    | Premise | Logical_Operator | Secondary_Premise | Conclusion | Truth_Value | Confidence (%) | Notes |
 
-Use-Cases
+## Use-Cases
 	•	AI symbolic logic and contradiction checking.
 	•	Automated reasoning validation for STEM hypotheses.
 	•	Embedding deductive reasoning into simulations.
@@ -91,14 +114,14 @@ Use-Cases
 
 5. .xai — AI-Enhanced Spreadsheet
 
-Purpose
-Hybrid format combining data + AI context memory inside a single file.
+## Purpose
+    Hybrid format combining data + AI context memory inside a single file.
 
-Structure
+## Structure
 	•	Data layer: conventional tabular data.
 	•	AI layer: structured logs of prompts, responses, metadata.
 
-Use-Cases
+## Use-Cases
 	•	Context-aware spreadsheets (AI remembers past queries).
 	•	Distributed AI collaboration (file carries its own “assistant”).
 	•	Research reproducibility: all AI reasoning embedded with data.
@@ -107,12 +130,12 @@ Use-Cases
 
 6. .xdim — Dimensional Models File
 
-Purpose
-Encodes higher-dimensional mathematics and geometry, for theories beyond 3D space-time.
+## Purpose
+    Encodes higher-dimensional mathematics and geometry, for theories beyond 3D space-time.
 
-Structure
+## Structure
 
-| Model_ID | Dimension_Count | Geometry_Type | Transformation_Matrix | Tensor_Fields | Physical_Interpretation | Notes |
+    | Model_ID | Dimension_Count | Geometry_Type | Transformation_Matrix | Tensor_Fields | Physical_Interpretation | Notes |
 
 ⸻   
  
@@ -131,27 +154,28 @@ Use_Cases
 
 ⸻
 
-7. Ecosystem_Workflow
+7. ## Ecosystem_Workflow
 
-	1.	.xlsl = Hub → holds general STEM and logic sheets.
-	2.	.xqsl = Quantum extension → state transfer, entanglement, teleportation.
-	3.	.xsim = Simulation → runs applied case studies.
-	4.	.xrls = Logic → validates reasoning and inferences.
-	5.	.xai = AI-enhanced → keeps reasoning memory and context.
-	6.	.xdim = Higher dimensions → advanced teleportation and 
-	1.	Ethics_Notes
+       1.	.xlsl = Hub → holds general STEM and logic sheets.
+	   2.	.xqsl = Quantum extension → state transfer, entanglement, teleportation.
+	   3.	.xsim = Simulation → runs applied case studies.
+     	4.	.xrls = Logic → validates reasoning and inferences.
+	   5.	.xai = AI-enhanced → keeps reasoning memory and context.
+    	6.	.xdim = Higher dimensions → advanced teleportation and 
+	
+ 1.	## Ethics_Notes
  
-	•	Tracks considerations around privacy, consent, data anonymization, and AI fairness.
-	•	Can store notes about potential biases in AI models or quantum simulations.
-	•	Useful for documenting decisions to comply with research ethics or regulatory standards.
+    	•	Tracks considerations around privacy, consent, data anonymization, and AI fairness.
+	    •	Can store notes about potential biases in AI models or quantum simulations.
+      	•	Useful for documenting decisions to comply with research ethics or regulatory standards.
 
-  2.  Economics_Records
+  2.  ## Economics_Records
   
 	•	Records costs of interventions, treatments, or experiments.
 	•	Can calculate cost-benefit analyses or ROI for clinical trials, lifespan interventions, or quantum computing experiments.
 	•	Includes metrics like budget, actual expenditure, projected savings, and economic feasibility.
 	
- 3.	Simulation_Scenarios
+ 3.	## Simulation_Scenarios
  
 	•	Enables “what-if” analysis across multiple domains such as diet, medication, stress, or environmental factors.
 	•	Stores initial conditions, parameters, and expected outputs for each simulation.
@@ -175,44 +199,38 @@ Use_Cases
 	•	Includes endpoints, API keys, server details, runtime environment settings, and deployment notes.
 	•	Allows seamless transition from experimentation to production-ready workflows.
 
-## ⸻ 
-       expansion: 
+## expansion: 
 
-|| workbook.xlsl ||	
+|| notebooks.xlsl ||	
 
-1.	| Ethics_Notes | -  privacy, -  bias | - fairness | - consent | - logs | - Economics - -spreadsheet | – intervention | costs - resource | allocation - | - ROI calculations |
+    1.	| Ethics_Notes | -  privacy, -  bias | - fairness | - consent | - logs | - Economics - -spreadsheet | – intervention | costs - resource | allocation - | - ROI calculations |
 
-6.	| Simulation_Scenarios | – “what-if” experiments for diet, drugs, stress, or environmental factors.
-7.	| Visualization_Config | – chart types, axes, thresholds, color schemes for automated plotting.
-8.	|Collaboration_Log | – contributors, changes, timestamps, versioning.
-9.	| Deployment_dimensional | – endpoints, runtime configurations, API keys, server settings for 
+    6.	| Simulation_Scenarios | – “what-if” experiments for diet, drugs, stress, or environmental factors.
+    7.	| Visualization_Config | – chart types, axes, thresholds, color schemes for automated plotting.
+    8.	|Collaboration_Log | – contributors, changes, timestamps, versioning.
+    9.	| Deployment_dimensional | – endpoints, runtime configurations, API keys, server settings for 
 
- | Ai_quantum_workflows |
+    | Ai_quantum_workflows |
   
- | Advanced_Mathematics → | tensors, eigenvalues, PDEs, applied formulas. |
+    | Advanced_Mathematics → | tensors, eigenvalues, PDEs, applied formulas. |
  
-| Physics_Experiments → | parameters for mechanics, thermodynamics, electromagnetism, quantum circuits. |
+    | Physics_Experiments → | parameters for mechanics, thermodynamics, electromagnetism, quantum circuits. |
 
-| Reasoning_Problems → | logic puzzles, hypotheses, formal deductions, experimental design.| 
+    | Reasoning_Problems → | logic puzzles, hypotheses, formal deductions, experimental design.| 
 
-| Genomics_Deep → full gene sequences, variant analysis, epigenetic factors. |
+    | Genomics_Deep → full gene sequences, variant analysis, epigenetic factors. |
 
-Healthcare_Analytics → survival curves, hazard ratios, population studies. |
+    Healthcare_Analytics → survival curves, hazard ratios, population studies. |
 
-Environment_Scenarios → climate, pollution, lifestyle, and external stressors. |
+    Environment_Scenarios → climate, pollution, lifestyle, and external stressors. |
 
-| AI_Results_Log → historical model performance, predictions, and metrics for reference. |
+    | AI_Results_Log → historical model performance, predictions, and metrics for reference. |
 
-|
-Dual-format support ensures .xlsl branding while Python can read/write it as .xlsx.
-|
-	•	All layers interconnect: AI can pull 
- features from lifespan or environment data, quantum simulations can optimize interventions, and analytics can feed visualizations automatically.
+    | Dual-format support ensures .xlsl branding while Python can read/write it as .xlsx.
+	
+	•	All layers interconnect: AI can pull  features from lifespan or environment data, quantum simulations can optimize interventions, and analytics can feed visualizations automatically.
 	•	Project management and collaboration are integrated, ensuring reproducibility, ethics tracking, and versioning.
-	•	STEM research is fully supported:   
- mathematical models, physics parameters, reasoning experiments, and genomics data are all accessible in one system.
- 
- |
+	•	STEM research is fully supported:    mathematical models, physics parameters, reasoning experiments, and genomics data are all accessible in one system. |
 You typed Aura.xlsl. Likely you meant Aura.xlsx (Excel workbook).
 
 |
@@ -223,12 +241,13 @@ You typed Aura.xlsl. Likely you meant Aura.xlsx (Excel workbook).
 	•	.xlsm → Workbook with macros
 	•	.csv → Comma-separated values
 
-|
 ⸻
 
-| / Project Structure/.xlsl |
-
+ Project Structure/.xlsl
+ 
 ## ⸻
+
+```bash
 
     aura_project/
     ├── data/
@@ -244,26 +263,29 @@ You typed Aura.xlsl. Likely you meant Aura.xlsx (Excel workbook).
     │    └── exploration.ipynb   # experimentation & visualization
     ├.── requirements.txt
     └── main.py                  # orchestrator script
+```
 
-## ————
+ ————
 
-| Features:
-	•	Loads and saves Aura.xlsl while internally using .xlsx compatibility.
+## Features:
+
+•	Loads and saves Aura.xlsl while internally using .xlsx compatibility.
  Contains all previously created
  
-| spreadsheets | 
+## | spreadsheets | 
 
-
-Overview| Data | AI Input | Quantum Input | Results |
-| LifespanData | AI Modeling, Quantum_Optimization, Environment Factors, Clinical Trials, Genomic |
-| AI Pipeline Config | Quantum Results |
-|Pure Mathematics|
-| Further Mathematics | Applied Physics |
-| Reasoning Logic | Simulation Problems |
-| Ethics Notes|
-| Economics| Simulation Scenarios |
- | VisualizationbConfig, Collaboration Log |Deployment.
-Supports AI pipelines, quantum simulations, and
+    Overview| Data | AI Input | Quantum Input | Results |
+	| LifespanData | AI Modeling, Quantum_Optimization, Environment Factors, Clinical Trials, Genomic |
+    | AI Pipeline Config | Quantum Results |
+	|Pure Mathematics|
+    | Further Mathematics | Applied Physics |
+	| Reasoning Logic | Simulation Problems |
+    | Ethics Notes|
+	| Economics| Simulation Scenarios |
+    | VisualizationbConfig, Collaboration Log |Deployment.
+ 
+ 
+ Supports AI pipelines, quantum simulations, and
 lifespan analytics. Modular, ready for expansion and collaboration. 
 ⸻
 
