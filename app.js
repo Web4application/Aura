@@ -1,15 +1,5 @@
-const qubits = 3; // default qubit count
 let circuit = [];
-
-document.querySelectorAll('#gates-container button').forEach(btn => {
-    btn.addEventListener('click', () => {
-        let gate = btn.dataset.gate;
-        let targets = prompt("Enter target qubit indices (comma-separated):");
-        targets = targets.split(',').map(x => parseInt(x.trim()));
-        circuit.push({gate, targets});
-        alert(`Added ${gate} on qubits [${targets}]`);
-    });
-});
+const qubits = 3;
 
 document.getElementById('run-circuit').addEventListener('click', async () => {
     const payload = { n_qubits: qubits, operations: circuit };
@@ -23,15 +13,20 @@ document.getElementById('run-circuit').addEventListener('click', async () => {
     plotState(data.final_state);
 });
 
-function plotState(stateVector) {
-    const ctx = document.getElementById('state-plot').getContext('2d');
-    const n = Math.log2(stateVector.length);
-    const labels = [...Array(stateVector.length)].map((_, i) => i.toString(2).padStart(n, '0'));
-    const amplitudes = stateVector.map(c => Math.hypot(c[0], c[1] || 0));
+document.getElementById('save-circuit').addEventListener('click', () => {
+    const data = JSON.stringify(circuit, null, 2);
+    const blob = new Blob([data], {type: "application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "circuit.json";
+    a.click();
+});
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: { labels, datasets: [{ label: 'Amplitude', data: amplitudes, backgroundColor: 'rgba(75, 192, 192, 0.6)' }] },
-        options: { scales: { y: { beginAtZero: true } } }
-    });
-}
+document.getElementById('load-circuit').addEventListener('change', e => {
+    const reader = new FileReader();
+    reader.onload = evt => {
+        circuit = JSON.parse(evt.target.result);
+        renderCircuit();
+    };
+    reader.readAsText(e.target.files[0]);
+});
