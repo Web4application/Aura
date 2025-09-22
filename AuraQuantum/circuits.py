@@ -96,3 +96,21 @@ class AuraQuantumCircuit:
             else:
                 full_gate = xp.kron(full_gate, xp.eye(2, dtype=xp.complex128))
         self.state = full_gate @ self.state
+
+function saveCircuit(filename="circuit.json") {
+    const data = JSON.stringify(circuit, null, 2);
+    const blob = new Blob([data], {type: "application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+}
+
+function loadCircuit(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+        circuit = JSON.parse(e.target.result);
+        renderCircuit();
+    };
+    reader.readAsText(file);
+}
