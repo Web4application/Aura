@@ -1,21 +1,14 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from aura_quantum.builder import QuantumCircuitBuilder
 from aura_quantum.gates import H, X, Y, Z, CNOT, TOFFOLI
 from api.schemas import CircuitRequest, CircuitResponse
-from fastapi.middleware.cors import CORSMiddleware
+from typing import List
 
-# Gate mapping
+app = FastAPI(title="Aura Quantum IDE API")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
 GATE_MAP = {"H": H, "X": X, "Y": Y, "Z": Z, "CNOT": CNOT, "TOFFOLI": TOFFOLI}
-
-app = FastAPI(title="Aura Quantum API")
-
-# Enable CORS for frontend
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"]
-)
 
 @app.post("/run_circuit", response_model=CircuitResponse)
 def run_circuit(request: CircuitRequest):
@@ -28,7 +21,7 @@ def run_circuit(request: CircuitRequest):
     final_state = builder.run()
     measurement = builder.measure()
     return CircuitResponse(
-        final_state=final_state.get().tolist() if hasattr(final_state, "get") else final_state.tolist(),
+        final_state=final_state.get().tolist() if hasattr(final_state,"get") else final_state.tolist(),
         measurement=measurement
     )
 
