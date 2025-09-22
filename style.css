@@ -1,0 +1,12 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+#circuit-builder {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#gates-container button {
+    margin: 2px;
+}
