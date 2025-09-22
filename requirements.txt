@@ -6,3 +6,9 @@ matplotlib>=3.8
 qiskit>=0.41
 jupyter>=1.0
 cupy
+fastapi
+uvicorn
+numpy
+cupy
+pydantic
+matplotlib
