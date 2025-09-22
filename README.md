@@ -1,33 +1,31 @@
+————
 
-⸻
-## first project
-
-## • ———— 
-
-| aura_project/
- ├── data/
- │    └── Aura.xlsx              # your data hub
- ├── src/
- │    ├── __init__.py
- │    ├── ai_pipeline.py         # ML: regression/classification
- │    ├── quantum_pipeline.py    # Qiskit quantum circuits
- │    ├── lifespan_analysis.py   # survival curves, hazard ratios
- │    └── utils.py               # helpers to load Excel
- ├── notebooks/
- │    └── exploration.ipynb      # experiments
- ├── requirements.txt
- └── main.py                     # orchestrator script |
-
-⸻
-    
-  📑 Aura File Ecosystem — v0.1
-
+📑 Aura File Ecosystem — v0.1
+  
 ⸻
     
 Author: Seriki Yakub (KUBU LEE)
 Date: 2025
 
 ⸻
+
+
+    aura_project/
+    ├── data/
+    │    └── Aura.xlsx              # your data hub
+    ├── src/
+    │    ├── __init__.py
+    │    ├── ai_pipeline.py         # ML: regression/classification
+    │    ├── quantum_pipeline.py    # Qiskit quantum circuits
+    │    ├── lifespan_analysis.py   # survival curves, hazard ratios
+    │    └── utils.py               # helpers to load Excel
+    ├── notebooks/
+    │    └── exploration.ipynb      # experiments
+    ├── requirements.txt
+    └── main.py                     # orchestrator script
+
+—————
+
 
 1. .xlsl — Logic Spreadsheet (Core)
 
@@ -359,9 +357,10 @@ This brings Aura.xlsl to a total of 26 sheets, making it a fully functional rese
 You can download the full workbook here: Aura_Full_Project.xlsl
 
 
-```
-———
-		
-| <img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/52ab2b56-b0b6-4a26-9871-6c3cf8cb53a7" /> - | <img width="480" height="480" alt="image" - | src="https://github.com/user-attachments/assets/9853e362-7677-45d2-9a1b-a75437e07486" /> - | <img width="480" height="480" alt="image" - |src="https://github.com/user-attachments/assets/a7b76ddc-6a1f-466b-9beb-e34224d76e74" /> |
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/52ab2b56-b0b6-4a26-9871-6c3cf8cb53a7" />
+
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/9853e362-7677-45d2-9a1b-a75437e07486" />
+
+<img width="480" height="480" alt="image" src="https://github.com/user-attachments/assets/a7b76ddc-6a1f-466b-9beb-e34224d76e74" />
 
 ————
