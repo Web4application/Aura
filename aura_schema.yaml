@@ -1,0 +1,57 @@
+# Aura workbook schema (YAML)
+required: false
+columns:
+- {name: Model, type: string, required: true}
+- {name: Hyperparameters, type: string, required: false}
+- {name: Status, type: string, required: false}
+Quantum_Results:
+required: false
+columns:
+- {name: Run, type: integer, required: true}
+- {name: Circuit, type: string, required: true}
+- {name: Energy, type: number, required: false}
+- {name: Convergence, type: string, required: false}
+Ethics_Notes:
+required: false
+columns:
+- {name: Entry_ID, type: integer, required: true}
+- {name: Topic, type: string, required: true}
+- {name: Description, type: string, required: false}
+- {name: Status, type: string, required: false}
+Economics:
+required: false
+columns:
+- {name: Intervention, type: string, required: true}
+- {name: Cost_USD, type: number, required: false}
+- {name: ROI, type: number, required: false}
+- {name: Notes, type: string, required: false}
+Simulation_Scenarios:
+required: false
+columns:
+- {name: Scenario_ID, type: string, required: true}
+- {name: Description, type: string, required: false}
+- {name: Parameters, type: string, required: false}
+- {name: Expected_Outcome, type: string, required: false}
+Visualization_Config:
+required: false
+columns:
+- {name: Chart_Name, type: string, required: true}
+- {name: Type, type: string, required: false}
+- {name: X_Axis, type: string, required: false}
+- {name: Y_Axis, type: string, required: false}
+- {name: Threshold, type: number, required: false}
+Collaboration_Log:
+required: false
+columns:
+- {name: Contributor, type: string, required: true}
+- {name: Role, type: string, required: false}
+- {name: Task, type: string, required: false}
+- {name: Timestamp, type: string, required: false}
+- {name: Version, type: string, required: false}
+Deployment:
+required: false
+columns:
+- {name: Component, type: string, required: true}
+- {name: Endpoint, type: string, required: false}
+- {name: Environment, type: string, required: false}
+- {name: Notes, type: string, required: false}
