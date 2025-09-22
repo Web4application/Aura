@@ -1,23 +1,58 @@
-import pandas as pd
-from pathlib import Path
+# src/file_loader.py
 
-def load_workbook(file_path: str):
-    """Load Aura.xlsx or Aura.xlsl as pandas sheets."""
-    path = Path(file_path)
-    if not path.exists():
-        raise FileNotFoundError(f"{file_path} not found.")
-    
-    # If custom .xlsl, treat as .xlsx internally
-    ext = path.suffix.lower()
-    if ext == ".xlsl":
-        ext = ".xlsx"
-    xl = pd.ExcelFile(path)
-    
-    sheets = {sheet_name: xl.parse(sheet_name) for sheet_name in xl.sheet_names}
-    return sheets
+def load_workbook(path: str):
+"""Load .xlsx or .xlsl and return dict of DataFrames."""
+p = Path(path)
+if not p.exists():
+raise FileNotFoundError(path)
+suffix = p.suffix.lower()
+# allow .xlsl as branded extension
+if suffix == ".xlsl":
+# still readable by pandas/openpyxl
+pass
+xl = pd.ExcelFile(p)
+sheets = {name: xl.parse(name) for name in xl.sheet_names}
+return sheets
 
-def save_workbook(data_dict: dict, file_path: str):
-    """Save dictionary of DataFrames to .xlsx or .xlsl."""
-    with pd.ExcelWriter(file_path, engine="openpyxl") as writer:
-        for sheet_name, df in data_dict.items():
-            df.to_excel(writer, sheet_name=sheet_name, index=False)
+
+def validate_workbook(path: str):
+"""Validate workbook against schema. Returns (ok: bool, report: dict)."""
+schema = _read_schema()
+sheets = load_workbook(path)
+report = {
+"file": str(path),
+"checks": []
+}
+ok = True
+
+for sheet_name, spec in schema.get("sheets", {}).items():
+required = spec.get("required", False)
+if required and sheet_name not in sheets:
+ok = False
+report["checks"].append({"sheet": sheet_name, "ok": False, "reason": "missing required sheet"})
+continue
+if sheet_name in sheets:
+df = sheets[sheet_name]
+# check columns
+cols_ok = True
+missing_cols = []
+for col in spec.get("columns", []):
+cname = col["name"]
+if cname not in df.columns:
+if col.get("required", False):
+cols_ok = False
+missing_cols.append(cname)
+if not cols_ok:
+ok = False
+report["checks"].append({"sheet": sheet_name, "ok": False, "missing_columns": missing_cols})
+else:
+report["checks"].append({"sheet": sheet_name, "ok": True})
+return ok, report
+
+
+if __name__ == "__main__":
+import sys
+target = sys.argv[1] if len(sys.argv) > 1 else "data/Aura.xlsl"
+ok, r = validate_workbook(target)
+print("VALID:" if ok else "INVALID:")
+print(json.dumps(r, indent=2))
