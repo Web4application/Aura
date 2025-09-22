@@ -31,3 +31,19 @@ def run_circuit(request: CircuitRequest):
         final_state=final_state.get().tolist() if hasattr(final_state, "get") else final_state.tolist(),
         measurement=measurement
     )
+
+@app.post("/run_batch_circuits")
+def run_batch(circuits: List[CircuitRequest]):
+    results = []
+    for c in circuits:
+        builder = QuantumCircuitBuilder(c.n_qubits)
+        for op in c.operations:
+            gate = GATE_MAP[op.gate]
+            builder.add_gate(gate, op.targets)
+        final_state = builder.run()
+        measurement = builder.measure()
+        results.append({
+            "final_state": final_state.get().tolist() if hasattr(final_state,"get") else final_state.tolist(),
+            "measurement": measurement
+        })
+    return results
