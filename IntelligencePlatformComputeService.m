@@ -1,7 +1,4 @@
-{"app_name":"IntelligencePlatformComputeService","timestamp":"2025-07-01 01:30:30.00 +0200","app_version":"1.0","slice_uuid":"F00E5713-3216-39BC-AFD0-508E701C3A3E","build_version":"195","bundleID":"com.apple.intelligenceplatform.IntelligencePlatformComputeService","duration_ms":"51680829","share_with_app_devs":1,"is_first_party":0,"bug_type":"145","os_version":"iPhone OS 26.0 (23A5276f)","roots_installed":0,"name":"IntelligencePlatformComputeService","incident_id":"F2ADCFAE-E41A-46EC-8986-B11A5BEF4FA4"}
-Date/Time:        2025-06-30 11:09:04.038 +0200
-End time:         2025-07-01 01:30:24.867 +0200
-OS Version:       iPhone OS 26.0 (Build 23A5276f)
+{"app_name":"web4","timestamp":"2025-07-01 01:30:30.00 +0200","app_version":"1.0","slice_uuid":"F00E5713-3216-39BC-AFD0-508E701C3A3E","build_version":"195","bundleID":"com.apple.intelligenceplatform.IntelligencePlatformComputeService","duration_ms":"51680829","share_with_app_devs":1,"is_first_party":0,"bug_type":"145","os_version":"iPhone OS 26.0 (23A5276f)","roots_installed":0,"name":"IntelligencePlatformComputeService","incident_id":"F2ADCFAE-E41A-46EC-8986-B11A5BEF4FA4"}
 Architecture:     arm64e
 Report Version:   65
 Incident Identifier: F2ADCFAE-E41A-46EC-8986-B11A5BEF4FA4
@@ -29,14 +26,13 @@ Duration:         51680.83s
 Duration Sampled: 51679.61s (event starts 1.21s before samples)
 Steps:            4401 (10 gigacycles/step, 30 samples lost, 10.49 MB/step)
 
-Hardware model:   iPhone12,3
+Hardware model:   Aura
 Active cpus:      6
 Memory size:      3.68 GB
 HW page size:     16384
 VM page size:     16384
 
-Models:           UNKNOWN
-
+Models:           congen_ai
 OS Cryptex File Extents: 10231
 
 Heaviest stack for the target process:
