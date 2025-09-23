@@ -1,36 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aura Quantum IDE</title>
-<link rel="stylesheet" href="styles.css">
+    <title>Bell State Experiment</title>
 </head>
 <body>
-<h1>Aura Quantum Circuit IDE</h1>
+    <h1>Quantum Bell State Experiment</h1>
+    <button onclick="runExperiment()">Run Bell State</button>
+    <div id="results"></div>
 
-<div id="qubits-container"></div>
-<div id="gates-container">
-    <button class="gate" data-gate="H">H</button>
-    <button class="gate" data-gate="X">X</button>
-    <button class="gate" data-gate="Y">Y</button>
-    <button class="gate" data-gate="Z">Z</button>
-    <button class="gate" data-gate="CNOT">CNOT</button>
-    <button class="gate" data-gate="TOFFOLI">TOFFOLI</button>
-</div>
-
-<button id="run-circuit">Run Circuit</button>
-<button id="save-circuit">Save Circuit</button>
-<input type="file" id="load-circuit" />
-
-<h2>Result</h2>
-<pre id="result"></pre>
-<canvas id="state-plot" width="600" height="400"></canvas>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="dragDrop.js"></script>
-<script src="qubitLine.js"></script>
-<script src="plotState.js"></script>
-<script src="app.js"></script>
+    <script>
+        async function runExperiment() {
+            document.getElementById('results').textContent = 'Running experiment...';
+            try {
+                const response = await fetch('/run-bell-state');
+                const counts = await response.json();
+                document.getElementById('results').textContent = 
+                    `Results (shots: 1024): ${JSON.stringify(counts)}`;
+            } catch (error) {
+                document.getElementById('results').textContent = 
+                    `Error running experiment: ${error.message}`;
+            }
+        }
+    </script>
 </body>
 </html>
