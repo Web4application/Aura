@@ -1,8 +1,10 @@
-
 ⸻
+
 ## first project
 
 ## • ———— 
+
+```bash
 
 | aura_project/
  ├── data/
@@ -17,6 +19,7 @@
  │    └── exploration.ipynb      # experiments
  ├── requirements.txt
  └── main.py                     # orchestrator script |
+```
 
 ⸻
     
