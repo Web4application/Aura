@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura XLSL Web</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Aura XLSL Web Manager</h1>
+
+<input type="file" accept=".xlsl" id="fileInput"><br><br>
+
+<div id="sheetButtons"></div><br>
+
+<textarea id="csvText" rows="6" cols="80" placeholder="CSV content..."></textarea><br><br>
+
+<textarea id="mavenRegex" rows="4" cols="80" placeholder="Paste Maven %regex[...] excludes..."></textarea><br><br>
+
+<input type="text" id="replaceWith" placeholder="Replacement text"><br><br>
+
+<button id="highlightSheet">Highlight Sheet</button>
+<button id="replaceSheet">Replace Sheet</button>
+<button id="highlightAll">Highlight All Sheets</button>
+<button id="replaceAll">Replace All Sheets</button>
+<button id="exportMaster">Export Master CSV</button>
+<button id="saveXlsl">Save XLSL</button>
+
+<h2>Highlighted CSV</h2>
+<div style="overflow-x:auto;">
+    <table id="csvTable" border="1" cellpadding="4" style="border-collapse:collapse"></table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<script src="xlsl-manager.js"></script>
+</body>
+</html>
