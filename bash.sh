@@ -16,10 +16,27 @@ aura_project/
 
 ————
 
-pip install openpyxl
-python fix_excel.py
-pip install openpyxl
-python check_excel.py
+$ pip install openpyxl
+$ python fix_excel.py
+$ pip install openpyxl
+$ python check_excel.py
+# Web server option 1: NGINX and uWSGI
+brew install nginx uwsgi
+
+# Web server option 2: Apache with ``mod_wsgi``
+brew install httpd
+
+# Caching backend: Redis
+brew install redis
+
+# Database server: PostgreSQL
+brew install postgresql
+
+# Gettext for the msgmerge add-on
+brew install gettext
+
+# Install Weblate with all optional dependencies
+uv pip install "weblate[all]"
 
 #!/bin/bash
 
@@ -28,7 +45,7 @@ python check_excel.py
 # -----------------------------
 
 # --- CONFIGURATION ---
-GITHUB_USERNAME="YourUsername"
+GITHUB_USERNAME="web4application"
 REPO_NAME="SERAI"
 GITHUB_URL="https://github.com/$GITHUB_USERNAME/$REPO_NAME.git"
 PYTHON_VERSION="3.11"
@@ -54,6 +71,8 @@ git checkout -b dev
 git checkout -b test
 git checkout main
 
+weblate createadmin
+. ~/weblate-env/bin/activate
 # --- OPTIONAL: Setup GitHub Actions CI ---
 echo "Setting up Python CI workflow..."
 mkdir -p .github/workflows
