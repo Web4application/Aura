@@ -1,12 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    font-family: monospace;
+    padding: 20px;
 }
-#circuit-builder {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+
+button {
+    margin: 5px 5px 5px 0;
+    padding: 5px 10px;
+    cursor: pointer;
 }
-#gates-container button {
-    margin: 2px;
+
+table th, table td {
+    padding: 6px 10px;
+    text-align: left;
 }
