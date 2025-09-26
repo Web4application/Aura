@@ -1,0 +1,27 @@
+#!/bin/sh
+PKGDIR="/usr/local/aura"
+
+install_pkg() {
+    pkg=$1
+    echo "[+] Installing $pkg"
+    mkdir -p "$PKGDIR"
+    tar -xzf "$pkg" -C "$PKGDIR"
+    echo "[✓] Installed $(grep Name $PKGDIR/aura.meta | cut -d: -f2)"
+}
+
+remove_pkg() {
+    name=$1
+    echo "[-] Removing $name"
+    rm -rf "$PKGDIR/$name"
+}
+
+list_pkg() {
+    ls $PKGDIR
+}
+
+case "$1" in
+    install) install_pkg $2 ;;
+    remove) remove_pkg $2 ;;
+    list) list_pkg ;;
+    *) echo "Usage: apm {install|remove|list}";;
+esac
