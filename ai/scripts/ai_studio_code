@@ -1,0 +1,1 @@
+pip install google-genai opencv-python pyaudio pillow mss
