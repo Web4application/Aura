@@ -1,0 +1,3 @@
+Name: hello-world
+Version: 1.0.0
+Exec: bin/hello
