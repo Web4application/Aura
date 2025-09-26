@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Launching Aura Desktop..."
+# Placeholder GUI using X11 + Openbox
+startx /usr/share/aura/desktop/session.sh
