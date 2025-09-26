@@ -46,8 +46,8 @@ uv pip install "weblate[all]"
 
 # --- CONFIGURATION ---
 GITHUB_USERNAME="web4application"
-REPO_NAME="SERAI"
-GITHUB_URL="https://github.com/$GITHUB_USERNAME/$REPO_NAME.git"
+REPO_NAME="Aura"
+GITHUB_URL="https://github.com/$web4application/$aura.git"
 PYTHON_VERSION="3.11"
 
 # --- INIT GIT ---
@@ -70,6 +70,24 @@ echo "Creating dev and test branches..."
 git checkout -b dev
 git checkout -b test
 git checkout main
+
+sudo apt update
+sudo apt install debootstrap xorriso squashfs-tools grub-pc-bin grub-efi-amd64-bin mtools
+mkdir ~/minios
+cd ~/minios
+mkdir chroot iso
+
+sudo chroot chroot /bin/bash
+
+chmod +x /usr/local/bin/mini-build
+
+cd ~/minios
+mkdir -p iso/live
+sudo mksquashfs chroot iso/live/filesystem.squashfs -e boot
+cp -r chroot/boot iso/boot
+grub-mkrescue -o MiniOS.iso iso
+
+qemu-system-x86_64 -cdrom MiniOS.iso -m 2048
 
 weblate createadmin
 . ~/weblate-env/bin/activate
