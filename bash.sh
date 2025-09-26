@@ -14,7 +14,112 @@ aura_project/
  ├── requirements.txt
  └── main.py                  # orchestrator
 
+
+> aura run health.xlsl
+> aura sync physics.xlsr
+> aura teleport session.ser
+> open research.xl
+
+[MiniOS Bootloader v0.1]
+>> Initializing system firmware...
+>> Detecting hardware... OK
+   CPU: 8 cores ARM64
+   Memory: 6 GB
+   Storage: 64 GB eMMC
+   Network: WiFi + LTE
+>> Loading kernel... [OK]
+>> Kernel checksum verified.
+>> Jumping to MiniOS Kernel...
+
+--------------------------------------------------
+ MiniOS Kernel v1.0 (c) 2025 Web4Application
+--------------------------------------------------
+
+[ KERNEL ] Boot sequence initiated
+[ KERNEL ] Memory manager online
+[ KERNEL ] Filesystem MiniFS mounted on /
+[ KERNEL ] Devices: display=OK, input=OK, GPU=OK
+[ KERNEL ] Loading modules... fsd netd aura-core ui-shell
+
+--------------------------------------------------
+ Aura Integration Engine v0.9
+--------------------------------------------------
+
+[AURA] Core runtime detected
+[AURA] Extensions registered: .xl .xlsl .xlsr .ser
+[AURA] Linking with kernel memory space... [OK]
+[AURA] Cloud sync available
+[AURA] Quantum extensions: detected (experimental)
+[AURA] Ready for execution
+
+--------------------------------------------------
+ MiniOS Services
+--------------------------------------------------
+[fsd] File system daemon online
+[netd] Network manager active (IP: 192.168.1.44)
+[aura-core] Aura engine active
+[ui-shell] Minimal GUI loaded
+--------------------------------------------------
+
+Welcome to MiniOS [build 2025.09.26]
+Aura Engine is active
+>_
+
+.....
+
+[MiniOS Bootloader v0.2]
+>> Firmware init...OK
+>> Loading MiniOS Kernel v1.1... OK
+>> Jumping to kernel
+
+--------------------------------------------------
+ MiniOS Kernel v1.1 (c) 2025 Web4Application
+--------------------------------------------------
+[ KERNEL ] Booting in dual-mode
+[ KERNEL ] Memory manager online
+[ KERNEL ] Devices initialized
+[ KERNEL ] File system mounted
+[ KERNEL ] Loading Aura runtime...
+
+--------------------------------------------------
+ Aura Engine v1.0
+--------------------------------------------------
+[AURA] Core system online
+[AURA] Extensions loaded (.xl, .xlsl, .xlsr, .ser)
+[AURA] Neural sync → enabled
+[AURA] Teleportation APIs → experimental
+[AURA] Cloud/hybrid database integration → ready
+
+--------------------------------------------------
+ MiniOS Services
+--------------------------------------------------
+[fsd] Filesystem Daemon ........ [READY]
+[netd] Network Manager .......... [READY]
+[dbd] Database Core ............. [READY]
+[aura-core] Aura Engine ......... [READY]
+[uimgr] Graphical Shell ......... [READY]
+
+--------------------------------------------------
+ [BOOT MODE SELECTION]
+ 1. Text Terminal (console)
+ 2. Aura Desktop (graphical hybrid)
+--------------------------------------------------
+ Default: Aura Desktop in 5s...
+ Press [1] to stay in text mode
 ————
+
+
+# universal_cd.sh controller
+case $TASK in
+  build)   ./minions/builder.sh $SOURCE ;;
+  web)     ./minions/web.sh $SOURCE ;;
+  db)      ./minions/database.sh $DB_CONFIG ;;
+  deploy)  ./minions/deploy.sh $TARGET ;;
+  *)
+    echo "Unknown task. Summon the right minion!"
+    ;;
+esac
+
 
 $ pip install openpyxl
 $ python fix_excel.py
