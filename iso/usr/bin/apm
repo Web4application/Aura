@@ -1,7 +1,51 @@
 #!/bin/sh
+PKGDIR="/usr/local/aura"
+REPO_URL="https://repo.auraos.org/index.json"
+
+fetch_index() {
+    curl -s $REPO_URL -o /tmp/aura-index.json
+}
+
+search_pkg() {
+    fetch_index
+    jq -r '.packages[] | "\(.name) \(.version)"' /tmp/aura-index.json
+}
+
+download_pkg() {
+    name=$1
+    fetch_index
+    url=$(jq -r ".packages[] | select(.name==\"$name\") | .url" /tmp/aura-index.json)
+    if [ -z "$url" ]; then
+        echo "[x] Package $name not found."
+        exit 1
+    fi
+    echo "[+] Downloading $name..."
+    curl -L $url -o /tmp/$name.aura
+    install_pkg /tmp/$name.aura
+}
+
+install_pkg() {
+    pkg=$1
+    echo "[+] Installing $pkg"
+    mkdir -p "$PKGDIR"
+    tar -xzf "$pkg" -C "$PKGDIR"
+    echo "[✓] Installed $(grep Name $PKGDIR/aura.meta | cut -d: -f2)"
+}
+
+remove_pkg() {
+    name=$1
+    echo "[-] Removing $name"
+    rm -rf "$PKGDIR/$name"
+}
+
+list_pkg() {
+    ls $PKGDIR
+}
+
 case "$1" in
-    install) echo "Installing $2...";;
-    remove) echo "Removing $2...";;
-    list) echo "Listing packages...";;
-    *) echo "Usage: apm {install|remove|list}";;
+    install) download_pkg $2 ;;
+    remove) remove_pkg $2 ;;
+    list) list_pkg ;;
+    search) search_pkg ;;
+    *) echo "Usage: apm {install|remove|list|search}";;
 esac
