@@ -1,4 +1,7 @@
-```
+<img width="686" height="436" alt="webapp" src="https://github.com/user-attachments/assets/5a3577fa-1e32-4986-ab1a-055d814a0a01" /><img width="1536" height="1024" alt="9F5231F0-FDF7-45CE-BBDB-8CC71A354D1E 3" src="https://github.com/user-attachments/assets/c29345f6-1931-4618-8f50-2062cd1a9630" />
+
+```bash
+
 ┌───────────────────────────────────────────────┐
 │ Aura Orb [Menu]         Clock   User Avatar   │
 └───────────────────────────────────────────────┘
@@ -47,6 +50,9 @@ pip install -r requirements.txt
 uvicorn api.main:app --reload
 
 ```
+<img width="1536" height="1024" alt="767C9710-1455-4218-B223-A294FEEFFB8B" src="https://github.com/user-attachments/assets/2a469545-17e0-4d63-8758-921b9cd56368" />
+	<img width="1536" height="1024" alt="9F5231F0-FDF7-45CE-BBDB-8CC71A354D1E" src="https://github.com/user-attachments/assets/7f17f4b6-cce4-409b-856e-68290ad55c19" />
+
 ```
 ┌───────────────────────────────────────────────┐
 │               Aura miniOS Core                │
@@ -413,7 +419,8 @@ Use_Cases
 
 ## Aura project workbook sheets is a complete multidisciplinary hub. It includes:
 
-	•	Advanced_Mathematics – matrices, eigenvalues, PDEs, tensor calculus
+	•	Advanced_Mathematics – matrices, eigenvalues, PDEs, tensor
+
 	•	Physics_Experiments – mechanics, thermodynamics, electromagnetism, quantum circuits
 	•	Reasoning_Problems – logic puzzles, hypotheses, experimental design
 	•	Genomics_Deep – gene variants, effects, notes
