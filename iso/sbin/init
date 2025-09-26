@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "=== Aura MiniOS Boot ==="
+echo "1) Aura Terminal Mode"
+echo "2) Aura GUI Mode"
+read -p "Choose mode: " mode
+
+if [ "$mode" = "1" ]; then
+    /usr/bin/aura-term
+else
+    /usr/bin/aura-gui
+fi
