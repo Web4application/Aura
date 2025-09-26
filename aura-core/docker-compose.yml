@@ -2,7 +2,6 @@ version: "3.9"
 services:
   aura-core:
     build: .
-    container_name: aura-core
     ports:
       - "8080:8080"
     depends_on:
@@ -14,23 +13,35 @@ services:
 
   postgres:
     image: postgres:15
-    container_name: aura-postgres
-    restart: always
     environment:
       POSTGRES_USER: aura
       POSTGRES_PASSWORD: password
       POSTGRES_DB: auradb
-    ports:
-      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   redis:
-    image: redis:7
-    container_name: aura-redis
-    restart: always
+    image: redis:redis-stack:7.2.0
     ports:
       - "6379:6379"
+
+  worker-ai:
+    build: ./workers
+    command: uvicorn worker_ai:app --host 0.0.0.0 --port 8090
+    ports:
+      - "8090:8090"
+
+  worker-compiler:
+    build: ./workers
+    command: uvicorn worker_compile:app --host 0.0.0.0 --port 8091
+    ports:
+      - "8091:8091"
+
+  worker-storage:
+    build: ./workers
+    command: uvicorn worker_storage:app --host 0.0.0.0 --port 8092
+    ports:
+      - "8092:8092"
 
 volumes:
   pgdata:
