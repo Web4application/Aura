@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  aura-core:
+    build: .
+    container_name: aura-core
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      DATABASE_URL: postgres+asyncpg://aura:password@postgres:5432/auradb
+      REDIS_URL: redis://redis:6379/0
+
+  postgres:
+    image: postgres:15
+    container_name: aura-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: aura
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: auradb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    container_name: aura-redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  pgdata:
