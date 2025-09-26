@@ -30,3 +30,18 @@ apm install hello-world
 # apm verifies:
 #   - SHA256 hash from index.json
 #   - GPG signature on package + index
+# Import repo public key (once)
+gpg --import aura-public.gpg
+
+# Install package
+apm install hello-world
+
+# apm verifies:
+#   - SHA256 hash from index.json
+#   - GPG signature on package + index
+# Generate Aura signing key
+gpg --quick-gen-key "AuraOS Repo <repo@auraos.org>" rsa4096 sign 1y
+
+# Export public key for clients
+gpg --armor --export "AuraOS Repo" > /var/www/repo/keys/aura-public.gpg
+
