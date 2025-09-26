@@ -8,3 +8,9 @@
    ├── nightly/
    └── keys/
          └── aura-public.gpg
+
+# Add new package
+scp myapp-2.0.0.aura repo@auraos.org:/var/www/repo/stable/
+
+# Update repo index
+ssh repo@auraos.org "apm-repo"
