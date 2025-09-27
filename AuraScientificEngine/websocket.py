@@ -39,3 +39,30 @@ async def handle_client(websocket, path):
 start_server = websockets.serve(handle_client, "localhost", 8765)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
+const socket = new WebSocket("ws://localhost:8765");
+
+socket.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    console.log("Live AI Response:", data);
+    // Update UI panels + visualization here
+};
+
+// Math example
+function computeFormulaLive(formula){
+    socket.send(JSON.stringify({type:"math", formula:formula}));
+}
+
+// Chemistry example
+function simulateReactionLive(reactants, products){
+    socket.send(JSON.stringify({type:"chemistry", reactants:reactants, products:products}));
+}
+
+// Physics example
+function computePhysicsLive(data){
+    socket.send(JSON.stringify({type:"physics", ...data}));
+}
+
+// Quantum example
+function simulateQuantumLive(circuit){
+    socket.send(JSON.stringify({type:"quantum", circuit:circuit}));
+}
