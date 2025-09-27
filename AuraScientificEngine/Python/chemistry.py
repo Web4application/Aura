@@ -11,3 +11,9 @@ def reaction_energy(reactants, products):
 def combine_chemicals(*compounds):
     """Simulate combining chemical quantities safely"""
     return sum(compounds)
+
+def simulate_reaction(reactants, products):
+    # Simple placeholder energy calculation
+    # reactants/products: {"H2":2, "O2":1}, {"H2O":2}
+    energy = sum(len(reactants) * 10) - sum(len(products) * 8)
+    return energy
