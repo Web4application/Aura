@@ -1,0 +1,8 @@
+backend/
+├── math_engine.py       # solve equations, formulas
+├── chemistry_engine.py  # compute reactions, energy, molecules
+├── physics_engine.py    # energy, vectors, forces
+├── quantum_engine.py    # qubit simulation, gates, entanglement
+├── ai_teacher.py        # explanations, suggestions
+├── websocket_server.py  # real-time communication
+└── utils.py             # shared helpers
