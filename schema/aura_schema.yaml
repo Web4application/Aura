@@ -1,0 +1,126 @@
+# Aura workbook schema (YAML)
+# Version this file when you change sheets/columns
+schema_version: 1
+workbook_name_patterns:
+  - Aura.xlsx
+  - Aura.xlsl
+sheets:
+  Overview:
+    required: true
+    columns:
+      - {name: Section, type: string, required: true}
+      - {name: Details, type: string, required: true}
+  Data:
+    required: true
+    columns:
+      - {name: ID, type: integer, required: true}
+      - {name: Name, type: string, required: true}
+      - {name: Value, type: number, required: true}
+      - {name: Category, type: string, required: false}
+  AI_Input:
+    required: false
+    columns:
+      - {name: Feature1, type: number, required: true}
+      - {name: Feature2, type: number, required: true}
+      - {name: Label, type: string, required: true}
+  Quantum_Input:
+    required: false
+    columns:
+      - {name: Qubit, type: integer, required: true}
+      - {name: Gate, type: string, required: true}
+      - {name: Parameter, type: string, required: false}
+  Results:
+    required: false
+    columns:
+      - {name: Run, type: integer, required: true}
+      - {name: Method, type: string, required: true}
+      - {name: Accuracy, type: number, required: false}
+  Lifespan_Data:
+    required: false
+    columns:
+      - {name: Subject_ID, type: integer, required: true}
+      - {name: Age, type: integer, required: true}
+      - {name: Gender, type: string, required: false}
+      - {name: Biomarker1, type: number, required: false}
+      - {name: Biomarker2, type: number, required: false}
+      - {name: Intervention, type: string, required: false}
+      - {name: Outcome_Lifespan, type: number, required: false}
+  Environment_Factors:
+    required: false
+    columns:
+      - {name: Subject_ID, type: integer, required: true}
+      - {name: Sleep_Hours, type: number, required: false}
+      - {name: Diet_Quality, type: string, required: false}
+      - {name: Stress_Level, type: string, required: false}
+  Clinical_Trials:
+    required: false
+    columns:
+      - {name: Trial_ID, type: string, required: true}
+      - {name: Intervention, type: string, required: true}
+      - {name: Participants, type: integer, required: false}
+      - {name: Duration_Months, type: integer, required: false}
+      - {name: Outcome, type: string, required: false}
+  Genomics:
+    required: false
+    columns:
+      - {name: Subject_ID, type: integer, required: true}
+      - {name: Gene, type: string, required: true}
+      - {name: Mutation, type: string, required: false}
+      - {name: Expression_Level, type: number, required: false}
+  AI_Pipeline_Config:
+    required: false
+    columns:
+      - {name: Model, type: string, required: true}
+      - {name: Hyperparameters, type: string, required: false}
+      - {name: Status, type: string, required: false}
+  Quantum_Results:
+    required: false
+    columns:
+      - {name: Run, type: integer, required: true}
+      - {name: Circuit, type: string, required: true}
+      - {name: Energy, type: number, required: false}
+      - {name: Convergence, type: string, required: false}
+  Ethics_Notes:
+    required: false
+    columns:
+      - {name: Entry_ID, type: integer, required: true}
+      - {name: Topic, type: string, required: true}
+      - {name: Description, type: string, required: false}
+      - {name: Status, type: string, required: false}
+  Economics:
+    required: false
+    columns:
+      - {name: Intervention, type: string, required: true}
+      - {name: Cost_USD, type: number, required: false}
+      - {name: ROI, type: number, required: false}
+      - {name: Notes, type: string, required: false}
+  Simulation_Scenarios:
+    required: false
+    columns:
+      - {name: Scenario_ID, type: string, required: true}
+      - {name: Description, type: string, required: false}
+      - {name: Parameters, type: string, required: false}
+      - {name: Expected_Outcome, type: string, required: false}
+  Visualization_Config:
+    required: false
+    columns:
+      - {name: Chart_Name, type: string, required: true}
+      - {name: Type, type: string, required: false}
+      - {name: X_Axis, type: string, required: false}
+      - {name: Y_Axis, type: string, required: false}
+      - {name: Threshold, type: number, required: false}
+  Collaboration_Log:
+    required: false
+    columns:
+      - {name: Contributor, type: string, required: true}
+      - {name: Role, type: string, required: false}
+      - {name: Task, type: string, required: false}
+      - {name: Timestamp, type: string, required: false}
+      - {name: Version, type: string, required: false}
+  Deployment:
+    required: false
+    columns:
+      - {name: Component, type: string, required: true}
+      - {name: Endpoint, type: string, required: false}
+      - {name: Environment, type: string, required: false}
+      - {name: Notes, type: string, required: false}
