@@ -228,7 +228,368 @@ function simulateInteraction(){
       auraOrb.style.boxShadow=`0 0 ${15+progress/2}px #ff2fff`;
       if(progress>=100) clearInterval(interval);
     },200);
+
+    <!-- CureLab Window -->
+<div class="window green" id="curelab" style="top:150px; left:200px; width:400px; height:350px;">
+  <div class="title">Aura Cure Lab 🧬</div>
+  <div class="terminal-content" id="cureContent">
+    <h3 style="margin:5px 0;">Create Cure Recipe</h3>
+    <div style="margin-bottom:8px;">
+      <label>Ingredients:</label><br>
+      <textarea id="cureIngredients" 
+        style="width:95%;height:60px;background:#0f172a;color:#fff;border:1px solid #444;border-radius:4px;padding:4px;">
+Tiger nut, Coconut, Honey, Dates
+      </textarea>
+    </div>
+    <div style="margin-bottom:8px;">
+      <label>Purpose:</label><br>
+      <input id="curePurpose" placeholder="Boost immunity / Extend lifespan" 
+        style="width:95%;background:#0f172a;color:#fff;border:1px solid #444;border-radius:4px;padding:4px;"/>
+    </div>
+    <button onclick="saveCure()" 
+      style="background:#10b981;border:none;color:#fff;padding:6px 10px;border-radius:4px;cursor:pointer;">
+      Save Recipe
+    </button>
+    <button onclick="analyzeCure()" 
+      style="background:#3b82f6;border:none;color:#fff;padding:6px 10px;border-radius:4px;margin-left:5px;cursor:pointer;">
+      Run AI Analysis
+    </button>
+    <div id="cureOutput" style="margin-top:10px;font-size:12px;color:#ccc;"></div>
+  </div>
+</div>
+ 
   }
+  
+  function saveCure() {
+  const ing = document.getElementById('cureIngredients').value;
+  const pur = document.getElementById('curePurpose').value;
+  document.getElementById('cureOutput').innerHTML += 
+    `<br>💾 Saved Cure: <b>${pur}</b> using [${ing}]`;
+  simulateInteraction();
+}
+
+function analyzeCure() {
+  const pur = document.getElementById('curePurpose').value;
+  const output = document.getElementById('cureOutput');
+  output.innerHTML += `<br>🔬 Analyzing cure for <b>${pur}</b>...`;
+  let progress = 0;
+  const interval = setInterval(()=>{
+    progress += 25;
+    output.innerHTML += `<br>AI Scan: ${progress}%`;
+    output.scrollTop = output.scrollHeight;
+    if(progress >= 100){
+      clearInterval(interval);
+      output.innerHTML += `<br>✅ Analysis Complete: Cure shows positive potential for ${pur}.`;
+      simulateInteraction();
+    }
+  }, 600);
+}
+  let userHistory={ files:{}, appUsage:{}, hotkeys:{} };
+
+// Track file interactions
+files.forEach(f=>{
+  f.addEventListener('dblclick', ()=>{
+    const fileId=f.id;
+    userHistory.files[fileId]=(userHistory.files[fileId]||0)+1;
+  });
+});
+
+// Track app window usage
+appWindows.forEach(win=>{
+  win.addEventListener('click', ()=>{
+    const winId=win.id;
+    userHistory.appUsage[winId]=(userHistory.appUsage[winId]||0)+1;
+  });
+});
+
+// Learning-based recommendation
+function learningPredict(file){
+  const type=file.dataset.type;
+  let preferredWindow=null;
+
+  if(type==='.xl'||type==='.xlsl') preferredWindow='appWindow1';
+  else if(type==='.xlsr'||type==='.ser') preferredWindow='appWindow2';
+
+  // Adjust based on history
+  if(userHistory.appUsage[preferredWindow]>0){
+    return preferredWindow;
+  }
+  return preferredWindow; // fallback
+}
+
+// Auto-sort file queue by frequency
+function sortFileQueue(){
+  const sorted=[...files].sort((a,b)=>{
+    const aCount=userHistory.files[a.id]||0;
+    const bCount=userHistory.files[b.id]||0;
+    return bCount-aCount;
+  });
+  fileQueue.innerHTML='';
+  sorted.forEach(f=>{
+    if(f.classList.contains('selected')){
+      fileQueue.innerHTML+=`<li>${f.textContent} (freq: ${userHistory.files[f.id]||0})</li>`;
+    }
+  });
+}
+
+// Integrate learning with smart routing
+function smartRouteWithLearning(file){
+  const targetId=learningPredict(file);
+  const targetWindow=document.getElementById(targetId);
+  if(targetWindow){
+    animateFileWorkflow(file,[
+      [file.getBoundingClientRect().left, file.getBoundingClientRect().top],
+      [terminal.getBoundingClientRect().left, terminal.getBoundingClientRect().top],
+      [deployPanel.getBoundingClientRect().left, deployPanel.getBoundingClientRect().top],
+      [targetWindow.getBoundingClientRect().left+50, targetWindow.getBoundingClientRect().top+50]
+    ], ()=> runAppWindow(file, targetWindow.querySelector('.terminal-content')));
+  }
+}
+
+// Periodic learning updates
+setInterval(sortFileQueue, 2000);
+
+  <!-- Add to workspace -->
+<div class="window blue" id="aiDashboard" style="top:60px; right:0; width:300px; height:500px;">
+  <div class="title">Aura AI Predictive Dashboard</div>
+  <div class="dashboard-content" style="padding:10px; font-size:12px;">
+    <h4>System Metrics</h4>
+    CPU: <div class="status-bar"><div class="status-fill" id="dashCPU"></div></div>
+    Memory: <div class="status-bar"><div class="status-fill" id="dashMem"></div></div>
+    Upload: <div class="status-bar"><div class="status-fill" id="dashUpload"></div></div>
+    Download: <div class="status-bar"><div class="status-fill" id="dashDownload"></div></div>
+
+    <h4>File Queue</h4>
+    <ul id="fileQueue"></ul>
+
+    <h4>Recommended Actions</h4>
+    <ul id="recommendations"></ul>
+  </div>
+</div>
+
+  <!-- Mobile App Window -->
+<div class="window blue" id="appWindow1" style="top:150px; left:650px; width:300px; height:400px;">
+  <div class="title">Mobile App Window</div>
+  <div class="terminal-content" id="appContent1">
+    Drag a .xl/.xlsl file here to run.
+  </div>
+</div>
+
+<!-- Web App Window -->
+<div class="window blue" id="appWindow2" style="top:200px; left:1000px; width:400px; height:500px;">
+  <div class="title">Web App Window</div>
+  <div class="terminal-content" id="appContent2">
+    Drag a .xlsr/.ser file here to run.
+  </div>
+</div>
+  <!-- Add multiple app windows -->
+<div class="window blue" id="appWindow1" style="top:150px; left:650px; width:300px; height:400px;">
+  <div class="title">Mobile App Window</div>
+  <div class="terminal-content" id="appContent1">Drag a .xl/.xlsl file here to run.</div>
+</div>
+
+<div class="window blue" id="appWindow2" style="top:200px; left:1000px; width:400px; height:500px;">
+  <div class="title">Web App Window</div>
+  <div class="terminal-content" id="appContent2">Drag a .xlsr/.ser file here to run.</div>
+</div>
+
+  // Drag-drop to app window
+const appWindows = [document.getElementById('appWindow1')];
+appWindows.forEach(win=>{
+  win.addEventListener('dragover', e=> e.preventDefault());
+  win.addEventListener('drop', e=>{
+    e.preventDefault();
+    let filesToRun = selectedFiles.length > 0 ? selectedFiles : [document.getElementById(e.dataTransfer.getData("text/plain"))];
+    filesToRun.forEach(file => runAppWindow(file, win.querySelector('.terminal-content')));
+    selectedFiles.forEach(f => f.classList.remove('selected'));
+    selectedFiles=[];
+  });
+});
+
+function runAppWindow(file, outputDiv){
+  outputDiv.innerHTML+=`<br>Running ${file.textContent}...`;
+  auraOrb.style.transform='scale(1.2)';
+  let progress=0;
+  const interval=setInterval(()=>{
+    progress+=20;
+    outputDiv.innerHTML+=`<br>Execution progress: ${progress}%`;
+    outputDiv.scrollTop=outputDiv.scrollHeight;
+    if(progress>=100){
+      clearInterval(interval);
+      outputDiv.innerHTML+=`<br>${file.textContent} finished execution ✅`;
+      auraOrb.style.transform='scale(1)';
+    }
+  },500);
+}
+
+  <!-- Mobile App Window -->
+<div class="window blue" id="appWindow1" style="top:150px; left:650px; width:300px; height:400px;">
+  <div class="title">Mobile App Window</div>
+  <div class="terminal-content" id="appContent1">
+    Drag a .xl/.xlsl file here to run.
+  </div>
+</div>
+
+<!-- Web App Window -->
+<div class="window blue" id="appWindow2" style="top:200px; left:1000px; width:400px; height:500px;">
+  <div class="title">Web App Window</div>
+  <div class="terminal-content" id="appContent2">
+    Drag a .xlsr/.ser file here to run.
+  </div>
+</div>
+
+  /* Add to existing styles */
+.file-animate {
+  position:absolute;
+  pointer-events:none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index:999;
+}
+
+  // Animate file moving along workflow
+function animateFileWorkflow(file, pathCoords, callback){
+  const clone=file.cloneNode(true);
+  clone.classList.add('file-animate');
+  document.body.appendChild(clone);
+
+  let index=0;
+  function moveNext(){
+    if(index>=pathCoords.length){
+      document.body.removeChild(clone);
+      if(callback) callback();
+      return;
+    }
+    const [x,y]=pathCoords[index];
+    clone.style.transform=`translate(${x}px, ${y}px)`;
+    clone.style.opacity='0.8';
+    index++;
+    setTimeout(moveNext, 500);
+  }
+  moveNext();
+}
+
+// Example usage: drag from Explorer → Terminal → Deploy → AppWindow
+files.forEach(f=>{
+  f.addEventListener('dblclick', ()=>{
+    const path=[
+      [f.getBoundingClientRect().left, f.getBoundingClientRect().top],
+      [terminal.getBoundingClientRect().left, terminal.getBoundingClientRect().top],
+      [deployPanel.getBoundingClientRect().left, deployPanel.getBoundingClientRect().top],
+      [appWindows[0].getBoundingClientRect().left+50, appWindows[0].getBoundingClientRect().top+50]
+    ];
+    animateFileWorkflow(f, path, ()=> runAppWindow(f, appWindows[0].querySelector('.terminal-content')));
+  });
+});
+
+  function smartRouteFile(file){
+  const type=file.dataset.type;
+  let targetWindow=null;
+  if(type==='.xl'||type==='.xlsl'){
+    targetWindow=appWindows.find(w=>w.id==='appWindow1'); // Mobile App
+  } else if(type==='.xlsr'||type==='.ser'){
+    targetWindow=appWindows.find(w=>w.id==='appWindow2'); // Web App
+  }
+
+  if(!targetWindow) return;
+
+  // Pre-load window if not visible
+  if(!targetWindow.classList.contains('show')){
+    toggleWindow(targetWindow.id);
+  }
+
+  // Animate file through workflow
+  const path=[
+    [file.getBoundingClientRect().left, file.getBoundingClientRect().top],
+    [terminal.getBoundingClientRect().left, terminal.getBoundingClientRect().top],
+    [deployPanel.getBoundingClientRect().left, deployPanel.getBoundingClientRect().top],
+    [targetWindow.getBoundingClientRect().left+50, targetWindow.getBoundingClientRect().top+50]
+  ];
+  animateFileWorkflow(file, path, ()=> runAppWindow(file, targetWindow.querySelector('.terminal-content')));
+}
+
+// Add visual workflow hint
+function highlightNextStep(file){
+  terminal.style.boxShadow='0 0 15px #00ff88';
+  deployPanel.style.boxShadow='0 0 15px #ff88ff';
+  appWindows.forEach(w=> w.style.boxShadow='0 0 15px #8888ff');
+  setTimeout(()=>{ terminal.style.boxShadow=''; deployPanel.style.boxShadow=''; appWindows.forEach(w=> w.style.boxShadow=''); }, 1000);
+}
+
+// Example usage: double-click file → smart route
+files.forEach(f=>{
+  f.addEventListener('dblclick', ()=>{
+    highlightNextStep(f);
+    smartRouteFile(f);
+  });
+});
+
+  let auraAIActive=true;
+
+function auraAIUpdate(){
+  if(!auraAIActive) return;
+
+  // 1. Monitor system load
+  const cpuLoad=Math.random()*100; // simulated CPU %
+  const memLoad=Math.random()*100; // simulated memory %
+  auraOrb.style.boxShadow=`0 0 ${10+cpuLoad/5}px #ff2fff`;
+
+  // 2. Auto-arrange windows if too many overlapping
+  const activeWindows=[...windows].filter(w=>w.classList.contains('show'));
+  activeWindows.forEach((w,i)=>{ w.style.top=`${60+i*30}px`; w.style.left=`${60+i*40}px`; });
+
+  // 3. Pre-load app windows based on incoming files
+  files.forEach(f=>{
+    if(f.classList.contains('selected')){
+      smartRouteFile(f); // auto-route selected files
+    }
+  });
+
+  // 4. Suggest next action visually
+  const randomHighlight=Math.floor(Math.random()*windows.length);
+  windows[randomHighlight].style.boxShadow='0 0 20px #00ff88';
+  setTimeout(()=>windows[randomHighlight].style.boxShadow='',500);
+
+  // 5. Schedule next update
+  setTimeout(auraAIUpdate, 2000);
+}
+
+// Start AI mode
+auraAIUpdate();
+
+  const dashCPU=document.getElementById('dashCPU');
+const dashMem=document.getElementById('dashMem');
+const dashUpload=document.getElementById('dashUpload');
+const dashDownload=document.getElementById('dashDownload');
+const fileQueue=document.getElementById('fileQueue');
+const recommendations=document.getElementById('recommendations');
+
+function updateDashboard(){
+  // System metrics (simulated)
+  dashCPU.style.width=Math.floor(Math.random()*100)+'%';
+  dashMem.style.width=Math.floor(Math.random()*100)+'%';
+  dashUpload.style.width=Math.floor(Math.random()*100)+'%';
+  dashDownload.style.width=Math.floor(Math.random()*100)+'%';
+
+  // File queue
+  fileQueue.innerHTML='';
+  [...files].forEach(f=>{
+    if(f.classList.contains('selected')) fileQueue.innerHTML+=`<li>${f.textContent} (pending)</li>`;
+  });
+
+  // Recommendations
+  recommendations.innerHTML='';
+  [...files].forEach(f=>{
+    if(f.classList.contains('selected')){
+      const type=f.dataset.type;
+      let target='App Window 1 (Mobile)';
+      if(type==='.xlsr'||type==='.ser') target='App Window 2 (Web)';
+      recommendations.innerHTML+=`<li>Process ${f.textContent} → ${target}</li>`;
+    }
+  });
+
+  setTimeout(updateDashboard,1000); // live updates
+}
+updateDashboard();
 </script>
 </body>
 </html>
