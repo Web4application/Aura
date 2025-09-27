@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Aura Quantum Lab with AI Teacher</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="./js/lab.js"></script>
+</head>
+<body>
+<h1>Aura Quantum Lab with AI Teacher</h1>
+
+<section>
+    <h2>Math & Equations</h2>
+    <input id="mathInput" type="text" placeholder="Enter formula">
+    <button onclick="computeFormula()">Compute</button>
+    <p id="mathResult"></p>
+    <p id="mathHint"></p>
+</section>
+
+<section>
+    <h2>Chemistry Simulator</h2>
+    <textarea id="chemInput">{ "H2":2 }, { "H2O":2 }</textarea>
+    <button onclick="simulateReaction()">Simulate Reaction</button>
+    <p id="chemResult"></p>
+    <p id="chemHint"></p>
+</section>
+
+<section>
+    <h2>Quantum Playground</h2>
+    <canvas id="quantumCanvas" width="300" height="200" style="border:1px solid black;"></canvas>
+    <button onclick="runQuantumDemo()">Run Quantum Demo</button>
+    <p id="quantumResult"></p>
+    <p id="quantumHint"></p>
+</section>
+
+<script type="module">
+import { runLabDemo, AITeacher } from './js/lab.js';
+import * as Quantum from './js/quantum.js';
+import { Visualizer } from './js/visualizer.js';
+
+window.computeFormula = () => {
+    const formula = document.getElementById("mathInput").value;
+    let result;
+    try { result = eval(formula); } catch(e) { result = "Error: "+e; }
+    document.getElementById("mathResult").innerText = "Result: "+result;
+    document.getElementById("mathHint").innerText = AITeacher.explainFormula(formula);
+};
+
+window.simulateReaction = () => {
+    try {
+        const [react, prod] = JSON.parse("[" + document.getElementById("chemInput").value + "]");
+        const energy = reactionEnergy(react, prod);
+        document.getElementById("chemResult").innerText = "Energy: "+energy+" kJ";
+        document.getElementById("chemHint").innerText = AITeacher.suggestChemistry(react, prod);
+    } catch(e) { document.getElementById("chemResult").innerText = "Error: "+e; }
+};
+
+window.runQuantumDemo = () => {
+    let q = Quantum.applyGate(Quantum.H, Quantum.qubitZero());
+    document.getElementById("quantumResult").innerText = AITeacher.guideQuantum(q);
+    document.getElementById("quantumHint").innerText = AITeacher.suggestNextStep("quantum");
+    Visualizer.drawQuantum(q, "quantumCanvas");
+};
+
+// Initial demo run
+runLabDemo();
+</script>
+
+</body>
+</html>
