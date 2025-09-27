@@ -16,7 +16,7 @@ jobs:
     - name: Test scripts
       run: |
         python ai/engine.py
-        python teleport/teleport_sim.py
+        python simutations/teleport_sim.ipynb
 
 lint-with-PSScriptAnalyzer:
     name: Install and run PSScriptAnalyzer
