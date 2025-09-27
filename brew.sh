@@ -1,3 +1,4 @@
+```bash
 
 aura_project/
  ├── data/
@@ -208,7 +209,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
@@ -227,4 +228,6 @@ git push origin main
 
 echo "✅ SERAI GitHub setup complete!"
 
+
 pip install qiskit qiskit-optimization
+~/weblate-env/lib/python3.9/site-packages/weblate/examples/celery start
