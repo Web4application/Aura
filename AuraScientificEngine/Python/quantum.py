@@ -25,3 +25,15 @@ def measure(qubit):
     probs = np.abs(qubit)**2
     result = np.random.choice([0,1], p=probs)
     return result, probs
+
+from qiskit import QuantumCircuit, Aer, execute
+
+def simulate_quantum(circuit_data):
+    qc = QuantumCircuit(len(circuit_data))
+    for gate in circuit_data:
+        if gate["type"]=="H": qc.h(gate["qubit"])
+        elif gate["type"]=="X": qc.x(gate["qubit"])
+        elif gate["type"]=="CNOT": qc.cx(gate["control"], gate["target"])
+    simulator = Aer.get_backend('statevector_simulator')
+    result = execute(qc, simulator).result()
+    return result.get_statevector().tolist()
