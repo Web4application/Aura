@@ -1,4 +1,3 @@
-# src/file_loader.py
 def load_workbook(path: str):
 """Load .xlsx or .xlsl and return dict of DataFrames."""
 p = Path(path)
