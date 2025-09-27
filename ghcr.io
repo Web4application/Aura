@@ -1,1 +1,0 @@
-"web4applicationkubuversesha256-65a937d797bd4a24738624dc6d2e0f7a7e52ee300c0ed459c653674c212fe2d8.sig"
