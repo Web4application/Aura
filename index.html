@@ -590,6 +590,110 @@ function updateDashboard(){
   setTimeout(updateDashboard,1000); // live updates
 }
 updateDashboard();
+
+  <!-- CureLab Window -->
+<div class="window green" id="curelab" style="top:150px; left:200px; width:400px; height:350px;">
+  <div class="title">Aura Cure Lab 🧬</div>
+  <div class="terminal-content" id="cureContent">
+    <h3 style="margin:5px 0;">Create Cure Recipe</h3>
+    <div style="margin-bottom:8px;">
+      <label>Ingredients:</label><br>
+      <textarea id="cureIngredients" 
+        style="width:95%;height:60px;background:#0f172a;color:#fff;border:1px solid #444;border-radius:4px;padding:4px;">
+Tiger nut, Coconut, Honey, Dates
+      </textarea>
+    </div>
+    <div style="margin-bottom:8px;">
+      <label>Purpose:</label><br>
+      <input id="curePurpose" placeholder="Boost immunity / Extend lifespan" 
+        style="width:95%;background:#0f172a;color:#fff;border:1px solid #444;border-radius:4px;padding:4px;"/>
+    </div>
+    <button onclick="saveCure()" 
+      style="background:#10b981;border:none;color:#fff;padding:6px 10px;border-radius:4px;cursor:pointer;">
+      Save Recipe
+    </button>
+    <button onclick="analyzeCure()" 
+      style="background:#3b82f6;border:none;color:#fff;padding:6px 10px;border-radius:4px;margin-left:5px;cursor:pointer;">
+      Run AI Analysis
+    </button>
+    <div id="cureOutput" style="margin-top:10px;font-size:12px;color:#ccc;"></div>
+  </div>
+</div>
+
+  function saveCure() {
+  const ing = document.getElementById('cureIngredients').value;
+  const pur = document.getElementById('curePurpose').value;
+  document.getElementById('cureOutput').innerHTML += 
+    `<br>💾 Saved Cure: <b>${pur}</b> using [${ing}]`;
+  simulateInteraction();
+}
+
+function analyzeCure() {
+  const pur = document.getElementById('curePurpose').value;
+  const output = document.getElementById('cureOutput');
+  output.innerHTML += `<br>🔬 Analyzing cure for <b>${pur}</b>...`;
+  let progress = 0;
+  const interval = setInterval(()=>{
+    progress += 25;
+    output.innerHTML += `<br>AI Scan: ${progress}%`;
+    output.scrollTop = output.scrollHeight;
+    if(progress >= 100){
+      clearInterval(interval);
+      output.innerHTML += `<br>✅ Analysis Complete: Cure shows positive potential for ${pur}.`;
+      simulateInteraction();
+    }
+  }, 600);
+}
+  const cureLab = document.getElementById('curelab');
+const cureContent = document.getElementById('cureContent');
+const matrixHeatmap = document.getElementById('matrixHeatmap');
+const moleculeCanvas = document.getElementById('moleculeCanvas');
+const ctx = moleculeCanvas.getContext('2d');
+
+// Trigger CureLab when health-related files are dropped
+function openCureLab(files) {
+  cureLab.style.display = "block";
+  setActiveWindow(cureLab);
+
+  cureContent.innerHTML = `<br>Analyzing ${files.map(f=>f.textContent).join(", ")} ...<br>`;
+  drawMolecules(files);
+  drawHeatmap(files);
+  setTimeout(()=>{
+    cureContent.innerHTML += `<br><b>AI Healer Mode:</b> These ingredients show high antioxidant synergy. Potential for immune boost ✅`;
+  },1500);
+}
+
+// Simulated molecule viewer
+function drawMolecules(files){
+  ctx.clearRect(0,0,moleculeCanvas.width,moleculeCanvas.height);
+  files.forEach((f, i)=>{
+    ctx.beginPath();
+    ctx.arc(80+(i*120),75,40,0,Math.PI*2);
+    ctx.fillStyle = i%2 ? "#ff2fff" : "#00ff88";
+    ctx.fill();
+    ctx.strokeStyle="#fff";
+    ctx.stroke();
+    ctx.fillStyle="#fff";
+    ctx.fillText(f.textContent, 60+(i*120), 140);
+  });
+}
+
+// Heatmap synergy matrix
+function drawHeatmap(files){
+  matrixHeatmap.innerHTML = "<b>Synergy Matrix</b><br>";
+  let table="<table style='border-collapse:collapse;'>";
+  files.forEach((f1,i)=>{
+    table+="<tr>";
+    files.forEach((f2,j)=>{
+      let val = Math.floor(Math.random()*100);
+      let color = `rgba(${255-val*2},${val*2},100,0.7)`;
+      table+=`<td style='width:40px;height:40px;background:${color};text-align:center;font-size:10px;'>${val}</td>`;
+    });
+    table+="</tr>";
+  });
+  table+="</table>";
+  matrixHeatmap.innerHTML+=table;
+}
 </script>
 </body>
 </html>
