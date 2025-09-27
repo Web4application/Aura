@@ -1,0 +1,28 @@
+[Unit]
+Description=Aura Service
+After=network.target
+
+[Service]
+# Set the working directory (where main.py + .env are)
+WorkingDirectory=/home/user/aura
+
+# Load environment variables
+EnvironmentFile=/home/user/aura/.env
+
+# Run Aura (Python example)
+ExecStart=/usr/bin/python3 /home/user/aura/main.py
+
+# Restart if the process crashes
+Restart=always
+RestartSec=5
+
+# Run under a specific user (optional, safer than root)
+User=aura
+Group=aura
+
+# Log output goes to journald
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
