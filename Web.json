@@ -1,0 +1,13 @@
+{
+  "webAppId": Aura,
+  "title": Aura,
+  "startUrl": Aura,
+  "icons": [
+    {
+      "imageData": Aura
+    }
+  ],
+  "displayMode": Aura,
+  "versionCode": long,
+  "isPublished": boolean
+}
