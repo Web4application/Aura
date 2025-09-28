@@ -12,6 +12,8 @@ kubectl create -f https://raw.githubusercontent.com/NVIDIA/dcgm-exporter/main/dc
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo update
 
+pip install python-a2a
+
 helm install kube-prometheus prometheus-community/kube-prometheus-stack
 
 kubectl -n kubernetes-dashboard create token admin-user
