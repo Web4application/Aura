@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/qubuhub.css' | relative_url }}">
+  <style>
+    /* Neon glow for headings */
+    h1, h2 {
+      text-shadow: 0 0 5px #00d1ff, 0 0 10px #00d1ff, 0 0 20px #00d1ff;
+    }
+
+    /* Neon links */
+    a {
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #00ffe0;
+      text-shadow: 0 0 5px #00ffe0, 0 0 10px #00ffe0, 0 0 20px #00ffe0;
+    }
+
+    /* Project card styling */
+    .project-card {
+      background-color: #1a1c29;
+      border: 1px solid #00d1ff;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 15px 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px #00d1ff;
+    }
+    .project-title {
+      color: #00d1ff;
+      font-size: 1.3em;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      color: #e0e0e0;
+    }
+
+    /* Container styling */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header class="container" style="text-align:center; padding: 40px 20px;">
+    <h1>{{ site.title }}</h1>
+    <p style="color:#ccc; font-size:1.2em;">AI & Blockchain-Powered Web4 Blog by KubuLee</p>
+  </header>
+
+  <section class="container">
+    <h2>🌐 Featured Projects</h2>
+
+    <!-- AI Projects -->
+    <div class="project-card">
+      <div class="project-title">Lola</div>
+      <div class="project-desc">Personal AI companion for voice, journaling, and productivity.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">RODA / RODAAI</div>
+      <div class="project-desc">AI platform for analytics, automation, and intelligent insights.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">AgbakoAI</div>
+      <div class="project-desc">Modular AI framework providing ML, NLP, and automation capabilities.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">ai-webapp</div>
+      <div class="project-desc">Web applications integrating AI for personalized automation.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">ChatGPT5 Mini</div>
+      <div class="project-desc">Lightweight conversational AI for web and mobile platforms.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">ProjectPilot</div>
+      <div class="project-desc">AI system for project planning, analysis, and optimization.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">Congen</div>
+      <div class="project-desc">Generative AI framework for automated content creation.</div>
+    </div>
+
+    <!-- Blockchain Projects -->
+    <div class="project-card">
+      <div class="project-title">Fadaka Blockchain</div>
+      <div class="project-desc">Scalable infrastructure for decentralized applications.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">Web4 Wallet</div>
+      <div class="project-desc">Secure, user-friendly wallet for blockchain assets.</div>
+    </div>
+    <div class="project-card">
+      <div class="project-title">AfriCryptChain</div>
+      <div class="project-desc">Transparent and secure blockchain for financial transactions.</div>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2>📰 Latest Blog Posts</h2>
+    <ul style="list-style:none; padding-left:0;">
+      {% for post in site.posts %}
+        <li style="margin-bottom:15px;">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <span style="color:#888; font-size:0.9em;"> — {{ post.date | date: "%B %-d, %Y" }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="container">
+    <h2>✨ About the Author</h2>
+    <p style="color:#e0e0e0; font-size:1.1em;">
+      KubuLee is the founder and visionary behind QubuHub. A developer and innovator specializing in AI, blockchain, and Web4, he creates tools that empower users and shape the decentralized web.
+    </p>
+  </section>
+
+  <footer style="text-align:center; padding:20px; color:#888;">
+    &copy; {{ site.time | date: "%Y" }} QubuHub. All Rights Reserved.
+  </footer>
+</body>
+</html>
