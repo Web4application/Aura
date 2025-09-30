@@ -1,0 +1,20 @@
+# Create Excel COM object
+$excel = New-Object -ComObject Excel.Application
+$excel.Visible = $false
+
+# Add a workbook
+$workbook = $excel.Workbooks.Add()
+$sheet = $workbook.Sheets.Item(1)
+
+# Write sample data
+$sheet.Cells.Item(1,1).Value = "Hello"
+$sheet.Cells.Item(1,2).Value = "World"
+
+# Save as .xlsx (update path as needed)
+$filepath = "C:\Temp\MyFile.xlsx"
+$workbook.SaveAs($filepath, 51)  # 51 = .xlsx format
+
+# Cleanup
+$workbook.Close($true)
+$excel.Quit()
+[System.Runtime.Interopservices.Marshal]::ReleaseComObject($excel) | Out-Null
