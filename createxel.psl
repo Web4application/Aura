@@ -1,0 +1,107 @@
+function Write-Xlsx {
+    param(
+        [string]$Path,
+        [object[][]]$Values,
+        [string]$SheetName = "Sheet1",
+        [switch]$ReplaceSheet
+    )
+
+    # Load OpenXML SDK
+    $openXmlPath = (Get-ChildItem "C:\Program Files\PackageManagement\NuGet\Packages\" -Recurse -Filter "DocumentFormat.OpenXml.dll" | Select-Object -First 1).FullName
+    if (-not $openXmlPath) { throw "DocumentFormat.OpenXml.dll not found. Install Open XML SDK via NuGet." }
+    Add-Type -Path $openXmlPath -ErrorAction SilentlyContinue
+
+    if (-not (Test-Path $Path)) {
+        # Create new spreadsheet
+        $spreadsheet = [DocumentFormat.OpenXml.Packaging.SpreadsheetDocument]::Create($Path, [DocumentFormat.OpenXml.SpreadsheetDocumentType]::Workbook)
+        $workbookPart = $spreadsheet.AddWorkbookPart()
+        $workbookPart.Workbook = New-Object DocumentFormat.OpenXml.Spreadsheet.Workbook
+        $worksheetPart = $workbookPart.AddNewPart([DocumentFormat.OpenXml.Packaging.WorksheetPart])
+        $worksheetPart.Worksheet = New-Object DocumentFormat.OpenXml.Spreadsheet.Worksheet (New-Object DocumentFormat.OpenXml.Spreadsheet.SheetData)
+
+        $sheets = $workbookPart.Workbook.AppendChild((New-Object DocumentFormat.OpenXml.Spreadsheet.Sheets))
+        $sheet = New-Object DocumentFormat.OpenXml.Spreadsheet.Sheet -Property @{
+            Id = $workbookPart.GetIdOfPart($worksheetPart)
+            SheetId = 1
+            Name = $SheetName
+        }
+        $sheets.Append($sheet)
+    }
+    else {
+        # Open existing spreadsheet
+        $spreadsheet = [DocumentFormat.OpenXml.Packaging.SpreadsheetDocument]::Open($Path, $true)
+        $workbookPart = $spreadsheet.WorkbookPart
+        $sheets = $workbookPart.Workbook.Sheets
+
+        # Try to find requested sheet
+        $sheet = $sheets | Where-Object { $_.Name -eq $SheetName }
+        if ($sheet) {
+            if ($ReplaceSheet) {
+                # Remove old sheet and create new
+                $worksheetPart = $workbookPart.GetPartById($sheet.Id)
+                $worksheetPart.Worksheet.RemoveAllChildren()
+                $worksheetPart.Worksheet.AppendChild((New-Object DocumentFormat.OpenXml.Spreadsheet.SheetData))
+            }
+            else {
+                $worksheetPart = $workbookPart.GetPartById($sheet.Id)
+            }
+        }
+        else {
+            # Create new sheet
+            $worksheetPart = $workbookPart.AddNewPart([DocumentFormat.OpenXml.Packaging.WorksheetPart])
+            $worksheetPart.Worksheet = New-Object DocumentFormat.OpenXml.Spreadsheet.Worksheet (New-Object DocumentFormat.OpenXml.Spreadsheet.SheetData)
+
+            $newSheetId = ($sheets.ChildNodes | Measure-Object -Property SheetId -Maximum).Maximum + 1
+            $sheet = New-Object DocumentFormat.OpenXml.Spreadsheet.Sheet -Property @{
+                Id = $workbookPart.GetIdOfPart($worksheetPart)
+                SheetId = $newSheetId
+                Name = $SheetName
+            }
+            $sheets.Append($sheet)
+        }
+    }
+
+    # Get SheetData for writing
+    $sheetData = $worksheetPart.Worksheet.GetFirstChild([DocumentFormat.OpenXml.Spreadsheet.SheetData])
+    if ($ReplaceSheet) {
+        $sheetData.RemoveAllChildren()
+    }
+
+    # Write rows
+    foreach ($rowValues in $Values) {
+        $row = New-Object DocumentFormat.OpenXml.Spreadsheet.Row
+        foreach ($val in $rowValues) {
+            if ($null -eq $val) {
+                $cell = New-Object DocumentFormat.OpenXml.Spreadsheet.Cell
+            }
+            elseif ($val -is [int] -or $val -is [long] -or $val -is [double] -or $val -is [decimal] -or $val -is [float]) {
+                $cell = New-Object DocumentFormat.OpenXml.Spreadsheet.Cell -Property @{
+                    DataType = [DocumentFormat.OpenXml.Spreadsheet.CellValues]::Number
+                    CellValue = (New-Object DocumentFormat.OpenXml.Spreadsheet.CellValue $val.ToString())
+                }
+            }
+            else {
+                $cell = New-Object DocumentFormat.OpenXml.Spreadsheet.Cell -Property @{
+                    DataType = [DocumentFormat.OpenXml.Spreadsheet.CellValues]::String
+                    CellValue = (New-Object DocumentFormat.OpenXml.Spreadsheet.CellValue $val.ToString())
+                }
+            }
+            $row.Append($cell)
+        }
+        $sheetData.Append($row)
+    }
+
+    # Save and close
+    $workbookPart.Workbook.Save()
+    $spreadsheet.Close()
+}
+
+# Example usage
+# Create new file with headers
+Write-Xlsx -Path "C:\Temp\Example.xlsx" -Values @(@("ID","Name","Age"))
+
+# Append rows
+Write-Xlsx -Path "C:\Temp\Example.xlsx" -Values @(@(1,"Alice",23),@(2,"Bob",30)) -SheetName "Sheet1"
+
+# Replace entire sheet with new data
+Write-Xlsx -Path "C:\Temp\Example.xlsx" -Values @(@("Code","Value"),@("X1",100),@("X2",200)) -SheetName "Sheet1" -ReplaceSheet
