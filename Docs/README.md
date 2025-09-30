@@ -1,3 +1,11 @@
+<a href="https://github.com/Web4application/Aura">Aura.xlsl</a> by <a href="https://github.com/Web4application/Aura">Seriki Yakub</a> is marked <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
+
+
+
+
+
+
+
 ```bash
 
 ┌───────────────────────────────────────────────┐
@@ -137,6 +145,8 @@ Use-Cases
 	•	Foundation for linking with other Aura extensions.
 
 ⸻
+
+<a href="https://github.com/Web4application/Aura">Aura.xlsl</a> by <a href="https://github.com/Web4application/Aura">Seriki Yakub</a> is marked <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
 
 2. .xqsl — Quantum Spreadsheet Language
 
