@@ -1,3 +1,15 @@
+git clone <https://github.com/Web4application/EDQ-AI.git>
+cd EDQ-AI
+pip install -r requirements.txt
+uvicorn api.main:app --reload
+
+
+git clone <https://github.com/Web4application/project_pilot_ai.git>
+cd AuraQuantumIDE
+pip install -r requirements.txt
+uvicorn api.main:app --reload
+
+
 git clone https://github.com/huggingface/transformers.git
 cd transformers
 pip install -e .
