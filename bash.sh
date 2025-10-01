@@ -100,3 +100,8 @@ echo "✅ Aura + Kubuverse environment is ready!"
 docker buildx imagetools inspect ghcr.io/web4application/kubuverse@sha256:25f25b85336f0404001537eeb4cad839b5aa27aaaae12818704e9675ae8bc43d
 
 docker run -it --rm ghcr.io/web4application/kubuverse@sha256:25f25b85336f0404001537eeb4cad839b5aa27aaaae12818704e9675ae8bc43d bash
+
+python -m venv .env
+source .env/bin/activate
+
+pip install transformers
