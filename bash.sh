@@ -1,3 +1,9 @@
+git clone https://github.com/huggingface/transformers.git
+cd transformers
+pip install -e .
+
+pip install git+https://github.com/huggingface/transformers
+
 kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v0.14.0/nvidia-device-plugin.yml
 kubectl apply -f https://github.com/kedacore/keda/releases/download/v2.14.0/keda-2.14.0.yaml
 
