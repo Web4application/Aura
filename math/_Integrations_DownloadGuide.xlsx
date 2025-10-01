@@ -1,0 +1,15 @@
+ReadMe file for Stage Platform
+Filename: _Integrations_DownloadGuide.txt
+
+
+This file contains transactions for the banks and apps such as Paypal, Square, Amazon, which you have connected in the QuickBooks.
+It also contains the transactions which you have uploaded as a receipt in the QuickBooks.
+
+If this file is blank, it may mean you haven’t shared enough data with us or our products for it to be stored. If this doesn’t seem right, please double-check you entered your info correctly and request your data again.
+
+
+QuickBooks transactions data:
+Filename: <company_Id>_<YYYY-MM-DD>T<HH_MM_SS_sss>Z_data.csv
+
+This file contains descriptions of the downloaded data you requested.
+The CSV file may contain transactions which you have done through the above mentioned channel connected to QuickBooks.
