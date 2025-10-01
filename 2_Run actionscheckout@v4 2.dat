@@ -1,0 +1,82 @@
+2023-09-13T15:30:45.5431465Z ##[group]Run actions/checkout@v4
+2023-09-13T15:30:45.5431827Z with:
+2023-09-13T15:30:45.5432076Z   fetch-depth: 0
+2023-09-13T15:30:45.5432351Z   repository: github/explore
+2023-09-13T15:30:45.5432850Z   token: ***
+2023-09-13T15:30:45.5433098Z   ssh-strict: true
+2023-09-13T15:30:45.5433380Z   persist-credentials: true
+2023-09-13T15:30:45.5433642Z   clean: true
+2023-09-13T15:30:45.5433905Z   sparse-checkout-cone-mode: true
+2023-09-13T15:30:45.5434192Z   fetch-tags: false
+2023-09-13T15:30:45.5434458Z   show-progress: true
+2023-09-13T15:30:45.5434694Z   lfs: false
+2023-09-13T15:30:45.5434928Z   submodules: false
+2023-09-13T15:30:45.5435203Z   set-safe-directory: true
+2023-09-13T15:30:45.5435456Z ##[endgroup]
+2023-09-13T15:30:45.7881807Z Syncing repository: github/explore
+2023-09-13T15:30:45.7883635Z ##[group]Getting Git version info
+2023-09-13T15:30:45.7884218Z Working directory is '/home/runner/work/explore/explore'
+2023-09-13T15:30:45.7885850Z [command]/usr/bin/git version
+2023-09-13T15:30:45.7957165Z git version 2.42.0
+2023-09-13T15:30:45.7985330Z ##[endgroup]
+2023-09-13T15:30:45.8027605Z Temporarily overriding HOME='/home/runner/work/_temp/3ed23b46-2e3e-4313-8026-f9b9d8085c1e' before making global git config changes
+2023-09-13T15:30:45.8028240Z Adding repository directory to the temporary git global config as a safe directory
+2023-09-13T15:30:45.8028847Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/explore/explore
+2023-09-13T15:30:45.8075134Z Deleting the contents of '/home/runner/work/explore/explore'
+2023-09-13T15:30:45.8091480Z ##[group]Initializing the repository
+2023-09-13T15:30:45.8092164Z [command]/usr/bin/git init /home/runner/work/explore/explore
+2023-09-13T15:30:45.8168365Z hint: Using 'master' as the name for the initial branch. This default branch name
+2023-09-13T15:30:45.8171588Z hint: is subject to change. To configure the initial branch name to use in all
+2023-09-13T15:30:45.8175174Z hint: of your new repositories, which will suppress this warning, call:
+2023-09-13T15:30:45.8178436Z hint: 
+2023-09-13T15:30:45.8181222Z hint: 	git config --global init.defaultBranch <name>
+2023-09-13T15:30:45.8184792Z hint: 
+2023-09-13T15:30:45.8187478Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2023-09-13T15:30:45.8190363Z hint: 'development'. The just-created branch can be renamed via this command:
+2023-09-13T15:30:45.8192952Z hint: 
+2023-09-13T15:30:45.8196362Z hint: 	git branch -m <name>
+2023-09-13T15:30:45.8210106Z Initialized empty Git repository in /home/runner/work/explore/explore/.git/
+2023-09-13T15:30:45.8224643Z [command]/usr/bin/git remote add origin https://github.com/github/explore
+2023-09-13T15:30:45.8263416Z ##[endgroup]
+2023-09-13T15:30:45.8264157Z ##[group]Disabling automatic garbage collection
+2023-09-13T15:30:45.8265977Z [command]/usr/bin/git config --local gc.auto 0
+2023-09-13T15:30:45.8294516Z ##[endgroup]
+2023-09-13T15:30:45.8295197Z ##[group]Setting up auth
+2023-09-13T15:30:45.8300166Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2023-09-13T15:30:45.8328467Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2023-09-13T15:30:45.8755925Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2023-09-13T15:30:45.8802142Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2023-09-13T15:30:45.8962644Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2023-09-13T15:30:45.8999998Z ##[endgroup]
+2023-09-13T15:30:45.9000526Z ##[group]Fetching the repository
+2023-09-13T15:30:45.9014310Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +aefd4d479ab49dec35d5d23cdd7342002c9c67c9:refs/remotes/pull/3909/merge
+2023-09-13T15:30:48.4919579Z From https://github.com/github/explore
+2023-09-13T15:30:48.4920591Z  * [new branch]        gh-pages   -> origin/gh-pages
+2023-09-13T15:30:48.4969982Z  * [new branch]        main       -> origin/main
+2023-09-13T15:30:48.4970444Z  * [new ref]           aefd4d479ab49dec35d5d23cdd7342002c9c67c9 -> pull/3909/merge
+2023-09-13T15:30:48.4971494Z ##[endgroup]
+2023-09-13T15:30:48.4971874Z ##[group]Determining the checkout info
+2023-09-13T15:30:48.4972224Z ##[endgroup]
+2023-09-13T15:30:48.4972562Z ##[group]Checking out the ref
+2023-09-13T15:30:48.4972949Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/3909/merge
+2023-09-13T15:30:48.6440292Z Note: switching to 'refs/remotes/pull/3909/merge'.
+2023-09-13T15:30:48.6440533Z 
+2023-09-13T15:30:48.6440813Z You are in 'detached HEAD' state. You can look around, make experimental
+2023-09-13T15:30:48.6441226Z changes and commit them, and you can discard any commits you make in this
+2023-09-13T15:30:48.6441626Z state without impacting any branches by switching back to a branch.
+2023-09-13T15:30:48.6441830Z 
+2023-09-13T15:30:48.6441992Z If you want to create a new branch to retain commits you create, you may
+2023-09-13T15:30:48.6442413Z do so (now or later) by using -c with the switch command. Example:
+2023-09-13T15:30:48.6442607Z 
+2023-09-13T15:30:48.6442760Z   git switch -c <new-branch-name>
+2023-09-13T15:30:48.6452047Z 
+2023-09-13T15:30:48.6452251Z Or undo this operation with:
+2023-09-13T15:30:48.6452441Z 
+2023-09-13T15:30:48.6452517Z   git switch -
+2023-09-13T15:30:48.6452646Z 
+2023-09-13T15:30:48.6452861Z Turn off this advice by setting config variable advice.detachedHead to false
+2023-09-13T15:30:48.6453122Z 
+2023-09-13T15:30:48.6453395Z HEAD is now at aefd4d47 Merge d9ca61579ffd94164b1e03e301d04403d6e64723 into 40d426f9aca9697d4c5cb8ca0706ff5c61d0a0b5
+2023-09-13T15:30:48.6454412Z ##[endgroup]
+2023-09-13T15:30:48.6486885Z [command]/usr/bin/git log -1 --format='%H'
+2023-09-13T15:30:48.6512652Z 'aefd4d479ab49dec35d5d23cdd7342002c9c67c9'
