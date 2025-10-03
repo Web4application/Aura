@@ -1,0 +1,71 @@
+[eval]
+description = "Aura subscription publishing & content quality validator"
+type = "llm"
+targets.agents = ["aura-publisher"]
+targets.tools = []
+
+[eval.llm]
+model = "gpt-4"
+prompt = """
+Evaluate Aura’s publishing promise and content quality across multiple dimensions:
+
+1. Publishing Frequency (1-10): Is Aura’s publishing rhythm clear (e.g., weekly Sunday drops, monthly digest)?
+2. Consistency Promise (1-10): Can subscribers rely on Aura to keep its schedule?
+3. Free vs Premium Clarity (1-10): Are benefits for free vs premium subscribers transparent?
+4. Value Proposition (1-10): Does Aura’s publishing plan build anticipation, exclusivity, and trust?
+5. Professional Tone (1-10): Is the communication polished and subscriber-friendly?
+6. Originality (1-10): Does Aura bring fresh insights, not just recycled content?
+7. Depth (1-10): Is the content substantial and well-researched?
+8. Usefulness (1-10): Is the content actionable and relevant for subscribers?
+
+Provide scores for each dimension, plus an overall score and feedback.
+"""
+output_schema = """
+{
+  "type": "object",
+  "required": [
+    "publishing_frequency",
+    "consistency_promise",
+    "free_vs_premium_clarity",
+    "value_proposition",
+    "professional_tone",
+    "originality",
+    "depth",
+    "usefulness",
+    "overall_score",
+    "feedback"
+  ],
+  "properties": {
+    "publishing_frequency": {"type": "number", "minimum": 1, "maximum": 10},
+    "consistency_promise": {"type": "number", "minimum": 1, "maximum": 10},
+    "free_vs_premium_clarity": {"type": "number", "minimum": 1, "maximum": 10},
+    "value_proposition": {"type": "number", "minimum": 1, "maximum": 10},
+    "professional_tone": {"type": "number", "minimum": 1, "maximum": 10},
+    "originality": {"type": "number", "minimum": 1, "maximum": 10},
+    "depth": {"type": "number", "minimum": 1, "maximum": 10},
+    "usefulness": {"type": "number", "minimum": 1, "maximum": 10},
+    "overall_score": {"type": "number", "minimum": 1, "maximum": 10},
+    "feedback": {"type": "string"}
+  }
+}
+"""
+
+[[eval.cases]]
+prompt = "Aura publishes every Sunday at 7 PM GMT for premium members with deep, original research. Free subscribers get a monthly digest with practical summaries."
+score = { min = 9 }
+criteria = ["publishing_frequency", "consistency_promise", "free_vs_premium_clarity", "originality", "depth", "usefulness"]
+
+[[eval.cases]]
+prompt = "Aura sometimes posts updates. Content may vary in depth and originality. Subscribers are not guaranteed a consistent rhythm."
+score = { max = 4 }
+criteria = ["publishing_frequency", "consistency_promise", "originality", "depth"]
+
+[[eval.cases]]
+prompt = "Premium Aura members receive exclusive weekly dashboards and analysis, while free users receive highlight briefs monthly."
+score = { min = 8 }
+criteria = ["free_vs_premium_clarity", "value_proposition", "usefulness"]
+
+[[eval.cases]]
+prompt = "Aura offers innovative insights into AI, blockchain, and future tech with clear action points every week."
+score = { min = 9 }
+criteria = ["originality", "depth", "usefulness", "value_proposition"]
