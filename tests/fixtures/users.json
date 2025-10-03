@@ -1,0 +1,4 @@
+[
+  { "id": 1, "name": "Alice", "user_type": "premium" },
+  { "id": 2, "name": "Bob", "user_type": "standard" }
+]
