@@ -436,6 +436,8 @@ Use_Cases
 	•	Environment_Scenarios – pollution, lifestyle, expected impacts
 	•	AI_Results_Log – model results, datasets, metrics, notes
 
+```bash
+
 ┌──────────────────────┐
 │ Environment_Scenarios │
 │ (Pollution, Stress)  │
