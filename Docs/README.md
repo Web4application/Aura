@@ -1,3 +1,36 @@
+```
+
+TEST
+/project-root
+│
+├── src/                    # Your source code
+│   ├── module1/
+│   └── module2/
+│
+├── tests/                  # Main test suite
+│   ├── unit/               # Self-contained tests for each module
+│   │   ├── test_module1.py
+│   │   └── test_module2.py
+│   │
+│   ├── integration/        # Shows how modules interact
+│   │   ├── test_module1_module2_flow.py
+│   │   └── test_user_journey.py
+│   │
+│   ├── e2e/                # Full system / user flow tests
+│   │   ├── test_api_endpoints.py
+│   │   └── test_ui_workflow.py
+│   │
+│   └── fixtures/           # Shared test data / mocks
+│       ├── users.json
+│       └── sample_orders.json
+│
+├── docs/                   # Optional docs linked from tests
+│   └── onboarding.md
+│
+└── pytest.ini or jest.config.js
+
+
+
 <a href="https://github.com/Web4application/Aura">Aura.xlsl</a> by <a href="https://github.com/Web4application/Aura">Seriki Yakub</a> is marked <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;"><img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" alt="" style="max-width: 1em;max-height:1em;margin-left: .2em;">
 
 
