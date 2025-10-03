@@ -1,0 +1,67 @@
+[eval.llm]
+model = "gpt-4"
+prompt = """
+You are an evaluator. Given a user question, the model's response, and the expected answer, 
+evaluate the response for correctness, clarity, and usefulness. 
+Focus on how well the response demonstrates Aura's purpose: providing clarity, foresight, and value to its subscribers.
+Return JSON with fields 'score' (1–10) and 'reasoning'.
+"""
+output_schema = """
+{
+  "type": "object",
+  "required": ["score", "reasoning"],
+  "properties": {
+    "score": {"type": "number", "minimum": 1, "maximum": 10},
+    "reasoning": {"type": "string"}
+  }
+}
+"""
+
+# --- Core Tech/Science Evaluations ---
+
+[[eval.cases]]
+prompt = "What is blockchain?"
+expected = "A blockchain is a distributed digital ledger of transactions, maintained across a network of computers in a secure and immutable way."
+score = { min = 7, max = 9 }
+
+[[eval.cases]]
+prompt = "What is artificial intelligence?"
+expected = "Artificial intelligence is the simulation of human intelligence by machines, enabling them to perform tasks such as learning, reasoning, and problem-solving."
+score = { min = 8, max = 10 }
+
+[[eval.cases]]
+prompt = "Explain quantum computing in simple terms."
+expected = "Quantum computing uses the principles of quantum mechanics to perform calculations much faster than classical computers, especially for certain complex problems."
+score = { min = 7, max = 10 }
+
+# --- Aura Brand & Subscriber Value Evaluations ---
+
+[[eval.cases]]
+prompt = "Why should someone subscribe to Aura?"
+expected = "Aura provides clarity on AI, science, and future trends, delivering insights and deep dives for readers who want to stay ahead of the curve."
+score = { min = 8, max = 10 }
+
+[[eval.cases]]
+prompt = "What makes Aura different from other newsletters?"
+expected = "Aura is not just a newsletter, but a community focused on foresight, clarity, and thoughtful exploration of emerging technologies, blending research with creative storytelling."
+score = { min = 8, max = 10 }
+
+[[eval.cases]]
+prompt = "What will paid subscribers get in Aura?"
+expected = "Paid subscribers will unlock exclusive reports, foresight analysis, behind-the-scenes updates on Aura projects, and premium insights not available in free editions."
+score = { min = 8, max = 10 }
+
+[[eval.cases]]
+prompt = "How often will Aura publish new posts?"
+expected = "Aura will publish weekly deep dives on technology, AI, and science, with occasional special editions covering philosophy, culture, and creative thought."
+score = { min = 7, max = 9 }
+
+[[eval.cases]]
+prompt = "What type of community is Aura building?"
+expected = "Aura is building a community of thinkers, builders, and dreamers who are curious about the frontiers of AI, science, and innovation, and who value thoughtful discussion and foresight."
+score = { min = 8, max = 10 }
+
+[[eval.cases]]
+prompt = "Summarize Aura in one sentence."
+expected = "Aura is a publication that blends clarity, foresight, and creativity to explore the ideas shaping tomorrow."
+score = { min = 8, max = 10 }
